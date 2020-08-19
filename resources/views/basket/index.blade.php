@@ -15,7 +15,7 @@
 
         <p class="font-size-18">Корзина</p>
 
-        @if(count($products))
+        @if($products)
         @foreach($products as $product)
             @if($agent->isMobile())
 
