@@ -6,12 +6,9 @@
                 <div class="mb-3">
                     <img src="{{ asset('images/logo.svg') }}" alt="">
                 </div>
-                <p class="font-size-24 text-center">
-                    Спасибо
-                </p>
                 <p class="font-size-16 text-center mb-4">
-                    Ваша заявка отправлена. <br>
-                    Наш консультант свяжется с вами в ближайщее время.
+                    Благодарим что оставили  контакты <br>
+                    Мы с Вами свяжемся в течении 15 минут
                 </p>
                 <div class="text-center">
                 <a href="/">
