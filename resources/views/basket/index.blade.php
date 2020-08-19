@@ -15,6 +15,7 @@
 
         <p class="font-size-18">Корзина</p>
 
+        @if(count($products))
         @foreach($products as $product)
             @if($agent->isMobile())
 
@@ -80,6 +81,10 @@
             </div>
         </form>
         <button class="btn btn-success px-5 py-2 mt-5 btn-send">Отправить заявку</button>
+            @else
+            <p class="font-size-16">Корзина пуста</p>
+
+        @endif
     </div>
 @endsection
 
