@@ -80,6 +80,18 @@ html,body
     background-color: white;
     z-index:999;
 }
+
+@media screen and (max-width:768px)
+{
+    .color-list {
+        left: auto;
+        right: 0% !important;
+    }
+    .price-list {
+        left: auto;
+        right: 0% !important;
+    }
+}
 #mobile-catalog {
     background-color: white;
     transition: 0.5s;
@@ -98,4 +110,18 @@ html,body
     background: grey;
     display:none;
     z-index:9999;
+}
+.social {
+    padding:15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.social i {
+    width: 18px;
+    height:18px;
+    color:#000000;
+    transition: 0.5s;
+}
+.social:hover i {
+    color: #8FAF9E;
 }

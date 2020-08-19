@@ -4,7 +4,7 @@
 {{--//        $product = \App\Product::all()->first();--}}
 {{--//        dd($product->colors);--}}
 {{--//    ?>--}}
-        <div class="container">
+        <div class="container" style="margin-top: 120px">
             <div class="row mb-4">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-9 col-12">

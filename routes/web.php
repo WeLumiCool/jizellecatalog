@@ -30,3 +30,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/product/filter', 'ProductController@filter')->name('product/filter');
 Route::post('/search', 'ProductController@search')->name('search');
+
+
+Route::post('/add_cart', 'BasketController@add')->name('add_cart');
+Route::post('/delete_cart', 'BasketController@delete')->name('delete_cart');
+Route::post('/basket_save','BasketController@send')->name('basket_save');
+Route::get('/basket','BasketController@index')->name('basket');
