@@ -9,9 +9,11 @@
                     <p class="font-weight-bold font-size-20 text-white">
                         Контакты:
                     </p>
+                    <a href="tel:+74992868285" style="text-decoration: none;">
                     <p class="font-weight-light font-size-18 text-white">
                         +74992868285
                     </p>
+                    </a>
                     <p class="font-weight-light font-size-18 text-white">
                         ИНН:772874925504
                     </p>
