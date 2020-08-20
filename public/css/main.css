@@ -137,3 +137,34 @@ html,body
 .social:hover i {
     color: #8FAF9E;
 }
+
+.owl-one .owl-nav.disabled
+{
+    display: block!important;
+}
+.owl-one .owl-nav .owl-prev
+{
+    position: absolute;
+    left:0%;
+    top:45%;
+    background-image: url('../images/prev.svg') !important;
+    background-position: center;
+    background-size: cover;
+    width:35px;
+    height:44px;
+    outline: none;
+}
+
+.owl-one .owl-nav .owl-next
+{
+    position: absolute;
+    right:0%;
+    top:45%;
+    /*background-color: #B5C2BB!important;*/
+    background-image: url('../images/next.svg') !important;
+    background-position: center;
+    background-size: cover;
+    width:35px;
+    height:44px;
+    outline: none;
+}
