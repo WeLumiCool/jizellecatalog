@@ -13,6 +13,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 d-lg-block d-none">
+                    <div class="" style="position: sticky; top:20%;">
                     <p class="font-size-18 font-weight-bold mb-5">Каталог</p>
 
                     <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="all">Весь каталог</p>
@@ -21,6 +22,7 @@
                             <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</p>
                         @endif
                     @endforeach
+                </div>
                 </div>
                 <div class="col-lg-9 col-12">
                     <div class="row">

@@ -32,13 +32,13 @@ $agent = new Agent();
             <!-- Right Side Of Navbar -->
             <div class="navbar-nav d-flex align-items-center justify-content-end my-lg-0 my-4">
                 <!-- Authentication Links -->
-                <div class="">
+                <div class="ml-lg-0 ml-auto">
                     <div class="">
                         <a href="" class="font-size-16 text-dark">ПОМОЩЬ/КОНТАКТЫ</a>
                     </div>
                     <div class="mt-2 d-flex align-items-center justify-content-lg-start justify-content-end">
                         <div class="position-relative">
-                            <div class="position-absolute search-content bg-white border rounded" style="right:0%; top: 100%; z-index: 999; width:300px; max-height:200px; overflow-y: auto;">
+                            <div class="position-absolute search-content bg-white rounded">
                             </div>
                         <input style="border: 1px solid #000000; box-sizing: border-box; border-radius: 5px; outline: none!important;" type="text" class="mr-3 px-2 font-size-14 line-height-120 h-100" id="search" placeholder="Поиск...">
                         </div>

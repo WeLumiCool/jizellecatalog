@@ -83,7 +83,8 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-        $products = Product::all();
+        $value = $request->value;
+        $products = Product::where('title','like',"%$value%")->orWhere('article','like',"%$value%")->orWhere('price','like',"%$value%")->get();
 
         return response()->json([
            'html' => view('catalog.search', [
