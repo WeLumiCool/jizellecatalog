@@ -1,3 +1,4 @@
+@if($products != null)
 <div class="container border py-3">
 @foreach($products as $product)
 <div class="row mb-1" data-toggle="modal" data-target="#product-{{$product->id}}" style="cursor: pointer;">
@@ -10,3 +11,6 @@
 </div>
     @endforeach
 </div>
+@else
+    <div class=""></div>
+@endif
