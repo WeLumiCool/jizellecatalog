@@ -62,7 +62,7 @@ class BasketController extends Controller
         $products = Product::find(Session::get('cart'));
         Session::flush();
 
-        Mail::to('info@jizelle.ru')->send(new send($name, $phone, $products));
+        Mail::to('catalog@jizelle.ru')->send(new send($name, $phone, $products));
 
         return view('basket.success');
     }
