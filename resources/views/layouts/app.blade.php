@@ -72,6 +72,16 @@
     @endforeach
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173937125-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173937125-2');
+    </script>
+
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
