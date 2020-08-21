@@ -82,10 +82,8 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="mt-3 px-lg-4 px-1 font-size-16 font-weight-light text-left line-height-110">
-
+                            <div class="mt-3 px-lg-4 px-1 font-size-16 font-weight-light text-left line-height-110 descer">
                                     {!!$product->description!!}
-                                
                             </div>
                         </div>
                     </div>

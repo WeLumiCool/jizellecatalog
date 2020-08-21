@@ -196,3 +196,6 @@ html,body
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     margin-bottom:10px;
 }
+.descer p {
+    line-height: 110px!important;
+}
