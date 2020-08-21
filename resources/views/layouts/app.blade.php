@@ -82,6 +82,11 @@
                                 </div>
                             </div>
                         </div>
+                            <div class="mt-3">
+                                <p class="font-size-16 font-weight-light">
+                                    {{$product->description}}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
