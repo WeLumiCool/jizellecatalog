@@ -197,5 +197,5 @@ html,body
     margin-bottom:10px;
 }
 .descer p {
-    line-height: 110px!important;
+    line-height: 110%!important;
 }
