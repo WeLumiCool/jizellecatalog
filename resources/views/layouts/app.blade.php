@@ -83,7 +83,7 @@
                             </div>
                         </div>
                             <div class="mt-3">
-                                <p class="font-size-16 font-weight-light">
+                                <p class="font-size-16 font-weight-light text-left line-height-110">
                                     {{$product->description}}
                                 </p>
                             </div>
