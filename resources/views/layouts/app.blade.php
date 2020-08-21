@@ -84,7 +84,7 @@
                         </div>
                             <div class="mt-3 px-lg-4 px-1">
                                 <p class="font-size-16 font-weight-light text-left line-height-110">
-                                    {{$product->description}}
+                                    {!!$product->description!!}
                                 </p>
                             </div>
                         </div>
