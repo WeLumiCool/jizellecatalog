@@ -15,7 +15,7 @@
 
         <p class="font-size-18">Корзина</p>
 
-        @if($products)
+        @if(count($products))
         @foreach($products as $product)
             @if($agent->isMobile())
 
@@ -107,6 +107,11 @@
                     // }, 1500);
                     $('.cart-index').html(data.count);
                     $('#basket-' + btn.data('id')).remove();
+                    if (data.count == 0)
+                    {
+                        $('#basket-form').hide();
+                        $('.btn-send').hide();
+                    }
                 },
                 error: () => {
                 }

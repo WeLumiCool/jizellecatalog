@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 </head>
 <body>
+<div class="preloader">
+    <div class="row h-100 align-items-center justify-content-center">
+        <img class="img-fluid" src="{{ asset("images/logo.svg") }}" alt="">
+    </div>
+</div>
     <div id="app">
 
         @include('partials.header')
@@ -58,10 +63,10 @@
                                 {{--<img class="w-100" src="{{ asset('storage/'.json_decode($product->image)[1]) }}" alt="">--}}
                             {{--</div>--}}
                         </div>
-                        <div class="container">
+                        <div class="container pb-3">
                         <div class="d-flex">
                             <div class="col-8">
-                                <div class="text-left px-lg-5 px-1 mt-4">
+                                <div class="text-left px-lg-5 px-1">
                                     <p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>
                                     <p class="font-size-18 text-dark mb-1">{{ $product->title }}</p>
                                     <div class="d-flex">
@@ -71,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 py-5 px-lg-3 px-0">
+                            <div class="col-4 px-lg-3 px-0">
                                 <div class="d-flex align-items-center justify-content-center add-to-cart mt-3 py-2" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
                                     <img src="{{ asset('images/addcart.svg') }}" alt="">
                                 </div>
@@ -82,10 +87,14 @@
                 </div>
             </div>
         </div>
+        <div id="info_map_ip" style="width:1px; height:1px;display:none;opacity:0;"></div>
     @endforeach
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173937125-2"></script>
     <script>
@@ -131,6 +140,40 @@
     <!-- /Yandex.Metrika counter -->
 @stack('scripts')
 
+<script>
+    function preloader() {
+        // ymaps.ready(init);
+
+        // function init() {
+        //     // Данные о местоположении, определённом по IP
+        //     var geolocation = ymaps.geolocation,
+        //         // координаты
+        //         coords = [geolocation.latitude, geolocation.longitude],
+        //         myMap = new ymaps.Map('info_map_ip', {
+        //             center: coords,
+        //             zoom: 10
+        //         });
+        //     /*
+        //     alert(geolocation.country);
+        //     alert(geolocation.city);
+        //     alert(geolocation.region);
+        //     */
+        //     if(geolocation.country.indexOf('Киргизия') >= 0) {
+        //         //if(geolocation.region.indexOf('Москва') < 0) {
+        //         window.location.href = '/404';
+        //     }
+        //     else
+        //     {
+                $('.preloader').fadeOut('slow').delay(1000);
+            // }
+
+        // }
+
+    }
+</script>
+<script>
+    setTimeout(preloader, 500);
+</script>
     <script>
         $(document).on('click', '.add-to-cart', function (e) {
             var btn = $(e.currentTarget);
