@@ -66,7 +66,7 @@
                         <div class="container pb-3">
                         <div class="d-flex">
                             <div class="col-8">
-                                <div class="text-left px-lg-5 px-1">
+                                <div class="text-left px-lg-4 px-1">
                                     <p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>
                                     <p class="font-size-18 text-dark mb-1">{{ $product->title }}</p>
                                     <div class="d-flex">
