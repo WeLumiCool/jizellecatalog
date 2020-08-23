@@ -12,9 +12,15 @@
                     <div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color: {{ $color->color }}"></div>
                 @endforeach
             </div>
+            {{--<div class="d-flex justify-content-start mt-2">--}}
+
+            {{--</div>--}}
             <div class="d-flex justify-content-between mt-2">
-                <p class="font-size-12 text-secondary font-weight-light">{{ $product->price }} руб</p>
-                <div class="d-flex align-items-center justify-content-center add-to-cart" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
+                <div>
+                <p class="font-size-12 mb-0 text-secondary font-weight-light">Размер: {{ $product->size }}</p>
+                <p class="font-size-12 text-secondary font-weight-light mb-0">{{ $product->price }} руб</p>
+                </div>
+                    <div class="d-flex align-items-center justify-content-center add-to-cart" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
                     <img src="{{ asset('images/addcart.svg') }}" alt="">
                 </div>
             </div>
