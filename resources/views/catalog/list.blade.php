@@ -2,7 +2,7 @@
 @if(count($products))
 @foreach($products as $product)
 <div class="col-lg-4 col-10 px-4 mb-5">
-    <div class="bg-white" style="box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.14);">
+    <div class="bg-white position-relative" style="box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.14);">
         <img class="w-100" style="cursor: pointer;" data-toggle="modal" data-target="#product-{{$product->id}}" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
         <div class="p-3">
             <p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>
@@ -20,11 +20,49 @@
                 <p class="font-size-12 mb-0 text-secondary font-weight-light">Размер: {{ $product->size }}</p>
                 <p class="font-size-12 text-secondary font-weight-light mb-0">{{ $product->price }} руб</p>
                 </div>
-                    <div class="d-flex align-items-center justify-content-center add-to-cart" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
+                    <div class="d-flex align-items-center justify-content-center order-settings" data-id="{{$product->id}}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
                     <img src="{{ asset('images/addcart.svg') }}" alt="">
                 </div>
             </div>
         </div>
+        <div class="position-absolute w-100 h-100 px-2 py-5 bg-white" id="settings-{{$product->id}}" style="top:0%; left:0%; display: none;">
+            <img class="position-absolute" style="right:6%; top:2%; cursor: pointer;" id="close" data-id="{{ $product->id }}" src="{{ asset('images/close.svg') }}" alt="">
+            <div>
+            <p class="font-size-16 font-weight-bold text-center">Параметры</p>
+            <div class="form-group">
+                <label for="size-{{$product->id}}">Выберите размер</label>
+                <select class="form-control" id="size-{{$product->id}}">
+                    <option>52</option>
+                    <option>54</option>
+                    <option>56</option>
+                    <option>58</option>
+                    <option>60</option>
+                    <option>62</option>
+                </select>
+            </div>
+
+                @if(count($product->colors) > 1)
+                <div class="form-group">
+                    <label for="color-{{$product->id}}">Выберите цвет</label>
+                <select class="form-control" id="color-{{$product->id}}">
+                   @foreach($product->colors as $color)
+                        <option value="{{$color->id}}">{{$color->title}}</option>
+                    @endforeach
+                </select>
+                </div>
+                @else
+                    <input type="text" hidden id="color-{{$product->id}}" value="{{$product->colors[0]->id}}">
+                @endif
+
+            <div class="form-group">
+                <div class="form-label-group">
+                    <label for="count-{{$product->id}}">Введите количество</label>
+                    <input type="text" name="count" id="count-{{$product->id}}" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Введите кол-во" required="" autofocus="">
+                </div>
+            </div>
+            </div>
+                <button class="btn py-2 text-white position-absolute add-to-cart" data-id="{{ $product->id }}" style="background: #2F2F2F; cursor: pointer;bottom: 5%; width: 93%;">В корзину</button>
+            </div>
     </div>
 </div>
 

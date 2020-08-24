@@ -180,7 +180,9 @@
     <script>
         $(document).on('click', '.add-to-cart', function (e) {
             var btn = $(e.currentTarget);
-
+            var size = $('#size-' + btn.data('id')).val();
+            var color = $('#color-' + btn.data('id')).val();
+            var count = $('#count-' + btn.data('id')).val();
 
             $.ajax({
                 url: '{{ route('add_cart') }}',
@@ -188,6 +190,9 @@
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "id": btn.data('id'),
+                    "color": color,
+                    "size": size,
+                    "count": count,
                 },
                 success: data => {
                     btn.addClass('bg-success');
@@ -195,6 +200,7 @@
                         btn.removeClass('bg-success');
                     }, 1500);
                     $('.cart-index').html(data.count);
+                    $('#settings-' + btn.data('id')).hide();
                 },
                 error: () => {
                 }
@@ -203,6 +209,21 @@
             console.log(btn.data('id'));
         });
     </script>
+<script>
+    $(document).on('click', '.order-settings', function (e) {
+        var btn = $(e.currentTarget);
+
+        console.log(btn.data('id'));
+        $('#settings-' + btn.data('id')).show();
+    });
+</script>
+<script>
+    $(document).on('click', '#close', function (e) {
+        var btn = $(e.currentTarget);
+
+        $('#settings-' + btn.data('id')).hide();
+    });
+</script>
     <script>
         var owl = $('.owl-one');
         owl.owlCarousel({

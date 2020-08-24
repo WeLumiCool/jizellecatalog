@@ -14,17 +14,19 @@ class send extends Mailable
     public $phone;
     public $city;
     public $products;
+    public $total;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $phone, $city , $products)
+    public function __construct($name, $phone, $city , $products, $total)
     {
         $this->name = $name;
         $this->phone = $phone;
         $this->city = $city;
         $this->products = $products;
+        $this->total = $total;
     }
 
     /**
