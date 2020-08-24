@@ -12,16 +12,18 @@ class send extends Mailable
     use Queueable, SerializesModels;
     public $name;
     public $phone;
+    public $city;
     public $products;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $phone, $products)
+    public function __construct($name, $phone, $city , $products)
     {
         $this->name = $name;
         $this->phone = $phone;
+        $this->city = $city;
         $this->products = $products;
     }
 

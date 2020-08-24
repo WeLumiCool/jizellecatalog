@@ -12,6 +12,7 @@
         <br>
         <strong class="TTLight">Имя:</strong> {{ $name }}<br>
         <strong class="TTLight">Телефон:</strong> {{ $phone }}<br>
+        <strong class="TTLight">Город:</strong> {{ $city }}<br>
         <br>
 
         @foreach($products as $product)
