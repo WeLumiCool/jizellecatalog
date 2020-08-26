@@ -22,9 +22,7 @@
         <strong class="TTLight">Телефон:</strong> {{ $phone }}<br>
         <strong class="TTLight">Город:</strong> {{ $city }}<br>
         <br>
-
-
-</div></body></html>
-    {{--<img src="" style="width:50px; height:60px;" alt="">--}}
-
+    </div>
+    </body>
+    </html>
 @endcomponent
