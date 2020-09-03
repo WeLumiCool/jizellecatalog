@@ -34,7 +34,7 @@
                                 {{--<span class="text-secondary font-size-12 mr-2">Размер</span>--}}
                                 {{--<i class="fas fa-chevron-down text-secondary"></i>--}}
                             {{--</div>--}}
-                            <div class="mr-5 d-flex align-items-center position-relative color-filter" style="cursor:pointer;">
+                            <div class="mr-5 d-flex align-items-center position-relative color-filter" id="color-filter" style="cursor:pointer;">
                                 <span class="text-secondary font-size-12 mr-2 color-title">Все цвета</span>
                                 <i class="fas fa-chevron-down text-secondary"></i>
                                 <input type="hidden" class="color-value">
@@ -338,6 +338,15 @@
             $('.color-value').val(choice.data('value'));
             getColor(choice.data('value'));
 
+        });
+    </script>
+    <script>
+        $(document).click(function(event) {
+            if ($(event.target).is('#color-filter')) {
+                console.log('success');
+                $('#color-filter').removeClass('active');
+                $('.color-list').hide();
+            }
         });
     </script>
     <script>

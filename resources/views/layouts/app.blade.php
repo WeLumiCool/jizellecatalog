@@ -32,6 +32,9 @@
         <img class="img-fluid" src="{{ asset("images/logo.svg") }}" alt="">
     </div>
 </div>
+<?php
+    $agent = new \Jenssegers\Agent\Agent();
+?>
     <div id="app">
 
         @include('partials.header')
@@ -41,7 +44,7 @@
         @include('partials.footer')
     </div>
 
-
+    @include('modals.size_table')
     @foreach(\App\Product::all() as $product)
         <div class="modal fade" id="product-{{$product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

@@ -34,7 +34,7 @@ $agent = new Agent();
                 <!-- Authentication Links -->
                 <div class="ml-lg-0 ml-auto">
                     <div class="">
-                        <a href="" class="font-size-16 text-dark">ПОМОЩЬ/КОНТАКТЫ</a>
+                        <span style="cursor: pointer;" class="font-size-16 text-dark" data-toggle="modal" data-target="#table" >Таблица размеров</span>
                     </div>
                     <div class="mt-2 d-flex align-items-center justify-content-lg-start justify-content-end">
                         <div class="position-relative">
