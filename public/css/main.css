@@ -199,3 +199,12 @@ html,body
 .descer p {
     line-height: 110%!important;
 }
+.order-settings {
+    width: 80px;
+}
+@media screen and (max-width: 768px)
+{
+    .order-settings {
+        width:40px;
+    }
+}

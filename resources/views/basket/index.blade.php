@@ -5,6 +5,7 @@
 
     $agent = new Agent();
     ?>
+    {{--@dd($products)--}}
     {{--@dd(\Illuminate\Support\Facades\Session::all())--}}
     <div class="container mb-5" style="margin-top: 120px">
         <div class="row mb-4">
@@ -15,7 +16,7 @@
 
         <p class="font-size-18">Корзина</p>
 
-        @if(count($products))
+        @if($products != null)
 
         @foreach($products as $key => $item)
                 {{--@dd(\App\Color::find($item['color'])->color)--}}

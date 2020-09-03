@@ -62,10 +62,10 @@
                             {{--</div>--}}
                         {{--</div>--}}
                     </div>
-                    <div class="row mt-5 justify-content-lg-start justify-content-center" id="products_list">
+                    <div class="row mt-5 justify-content-lg-start justify-content-lg-center justify-content-between px-lg-0 px-3" id="products_list">
 
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt-lg-4 mt-1">
                         <div class="col-12">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination pg-amber justify-content-center">
