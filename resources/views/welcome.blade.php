@@ -120,6 +120,17 @@
     </script>
     <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
     <script>
+        $(document).on('keyup','.input-for-count', function (e) {
+            var input = $(e.currentTarget);
+            var max = input.data('max');
+
+            if (input.val() > max)
+            {
+                input.val(max);
+            }
+        });
+    </script>
+    <script>
         function paginationWithDots(c, m) {
             var current = c,
                 last = m,

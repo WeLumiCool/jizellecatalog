@@ -5,7 +5,7 @@
 
     $agent = new Agent();
     ?>
-    {{--@dd(\Illuminate\Support\Facades\Session::all())--}}
+{{--    @dd(\Illuminate\Support\Facades\Session::all())--}}
     <div class="container mb-5" style="margin-top: 120px">
         <div class="row mb-4">
             <div class="col-12 mb-5">
@@ -22,9 +22,8 @@
                 <?php
                 $product = \App\Product::find($item['id']);
                 ?>
+
             @if($agent->isMobile())
-
-
                 <div id="basket-{{ $key }}">
                     <div class="row mb-2">
                         <div class="col-lg-1 col-6">
@@ -73,6 +72,21 @@
             </div>
             @endif
         @endforeach
+        {{--<div>--}}
+            {{--@foreach($quantity as $item)--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-3">--}}
+                        {{--{{\App\Product::find($item['id'])->title}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-3">--}}
+                        {{--{{ \App\Color::find($item['color'])->title }}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-3">--}}
+                        {{--{{$item['count']}}--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
+        {{--</div>--}}
         <div class="text-right">
             <p class="font-size-18 text-success">Итоговая сумма: <span id="total-price"> {{ \Illuminate\Support\Facades\Session::get('total')}}</span> руб</p>
         </div>
@@ -93,14 +107,15 @@
             </div>
         </form>
         <div class="mt-5">
-        @if(\Illuminate\Support\Facades\Session::get('total') < 5000)
-            <p class="small text-danger">Заказ, должен быть на сумму более 5000 руб.</p>
+        @if(\Illuminate\Support\Facades\Session::get('total') < 5000 || $check == 1)
+            <p class="small text-danger mb-1">Условия заказа:</p>
+            <p class="small text-danger mb-1">1. Заказ, должен быть на сумму от 5000 руб </p>
+            <p class="small text-danger">2. Заказ модели одной расцветки (независимо от размеров) должен быть от 10 единиц</p>
         @endif
-        <button class="btn btn-success px-5 py-2 btn-send" {{\Illuminate\Support\Facades\Session::get('total') < 5000 ? 'disabled': ''}}>Отправить заявку</button>
+        <button class="btn btn-success px-5 py-2 btn-send" {{\Illuminate\Support\Facades\Session::get('total') < 5000 || $check == 1 ? 'disabled': ''}}>Отправить заявку</button>
         </div>
             @else
             <p class="font-size-16">Корзина пуста</p>
-
         @endif
     </div>
 @endsection

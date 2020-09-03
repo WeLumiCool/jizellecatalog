@@ -206,6 +206,11 @@
                     }, 1500);
                     $('.cart-index').html(data.count);
                     $('#settings-' + btn.data('id')).hide();
+                    $('.letter-' + btn.data('id')).html(data.left);
+                    $('#count-' + btn.data('id')).prop('max', data.left);
+                    $('#count-' + btn.data('id')).data('max', data.left);
+                    document.getElementById('quantity-' + btn.data('id')).style.width = data.procent + '%';
+                    // console.log('факт остаток:' + $('#count-' + btn.data('id')).data('max'));
                 },
                 error: () => {
                 }
