@@ -1,7 +1,7 @@
 
 @if(count($products))
 @foreach($products as $product)
-<div class="col-lg-4 col-6 px-lg-4 px-1 mb-5">
+<div class="col-lg-4 col-6 px-lg-4 px-1 mb-lg-5 mb-4">
     <div class="bg-white position-relative h-100" style="box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.14);">
         <img class="w-100" style="cursor: pointer;" data-toggle="modal" data-target="#product-{{$product->id}}" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
         <div class="p-3">

@@ -17,6 +17,7 @@ $agent = new Agent();
                     <img class="ml-3" src="{{ asset('images/cart.svg') }}" alt="">
                 </div>
             </a>
+            <i class="fas fa-bars fa-2x catalog-list"></i>
         @endif
         {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
             {{--<span class="navbar-toggler-icon"></span>--}}

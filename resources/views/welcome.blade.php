@@ -4,8 +4,8 @@
 {{--//        $product = \App\Product::all()->first();--}}
 {{--//        dd($product->colors);--}}
 {{--//    ?>--}}
-        <div class="container" style="margin-top: 120px">
-            <div class="row mb-4">
+        <div class="container main-block">
+            <div class="row mb-4 d-lg-block d-none">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-9 col-12">
                     <p class="font-size-20">Весь каталог</p>
@@ -26,32 +26,36 @@
                 </div>
                 <div class="col-lg-9 col-12">
                     <div class="row">
-                        <div class="col-lg-3 col-3 d-lg-none d-block">
-                            <i class="fas fa-bars fa-2x catalog-list"></i>
+                        <div class="col-lg-3 col-4 d-lg-none d-block">
+                            <p class="font-size-14">Весь каталог</p>
                         </div>
-                        <div class="col-lg-9 col-9 d-flex justify-content-lg-start justify-content-end">
+                        <div class="col-lg-9 col-8 d-flex justify-content-lg-start justify-content-end">
                             {{--<div class="mr-5 d-flex align-items-center">--}}
                                 {{--<span class="text-secondary font-size-12 mr-2">Размер</span>--}}
                                 {{--<i class="fas fa-chevron-down text-secondary"></i>--}}
                             {{--</div>--}}
-                            <div class="mr-5 d-flex align-items-center position-relative color-filter" id="color-filter" style="cursor:pointer;">
+                            <div class="dropdown">
+                            <div class="mr-5 d-flex align-items-center position-relative color-filter dropdown-toggle" id="dropdowncolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;">
                                 <span class="text-secondary font-size-12 mr-2 color-title">Все цвета</span>
-                                <i class="fas fa-chevron-down text-secondary"></i>
+                                {{--<i class="fas fa-chevron-down text-secondary"></i>--}}
+                            </div>
                                 <input type="hidden" class="color-value">
-                                <div class="position-absolute bg-white border p-2 color-list">
+                                <div class="position-absolute bg-white border p-2 color-list dropdown-menu" aria-labelledby="dropdowncolor">
                                     <div class="d-flex align-items-center color-item" data-value="none"><div style="width:15px; height:15px; border-radius:50%; background-color: transparent"></div><span class="color-point ml-3">Все цвета</span></div>
                                     @foreach(\App\Color::all() as $color)
                                         <div class="d-flex align-items-center color-item" data-value="{{ $color->id }}"><div style="width:15px; height:15px; border-radius:50%; background-color: {{$color->color}}"></div><span class="color-point ml-3">{{$color->title}}</span></div>
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center position-relative price-filter" style="cursor:pointer;">
+                            <div class="dropdown">
+                            <div class="d-flex align-items-center position-relative price-filter dropdown-toggle" id="dropdownprice" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;">
                                 <span class="text-secondary font-size-12 mr-2">Цена</span>
-                                <i class="fas fa-chevron-down text-secondary"></i>
+                                {{--<i class="fas fa-chevron-down text-secondary"></i>--}}
+                            </div>
                                 <input type="hidden" class="price-value">
-                                <div class="position-absolute bg-white border p-2 price-list">
-                                    <div class="d-flex align-items-center price-item" data-value="0"><span class="price-point ml-3">По возрастанию</span></div>
-                                    <div class="d-flex align-items-center price-item" data-value="1"><span class="price-point ml-3">По убыванию</span></div>
+                                <div class="bg-white border p-2 price-list dropdown-menu" aria-labelledby="dropdownprice">
+                                    <div class="d-flex align-items-center price-item dropdown-item" data-value="0"><span class="price-point ml-3">По возрастанию</span></div>
+                                    <div class="d-flex align-items-center price-item dropdown-item" data-value="1"><span class="price-point ml-3">По убыванию</span></div>
                                 </div>
                             </div>
                         </div>
@@ -62,10 +66,10 @@
                             {{--</div>--}}
                         {{--</div>--}}
                     </div>
-                    <div class="row mt-5 justify-content-lg-start justify-content-lg-center justify-content-between px-lg-0 px-3" id="products_list">
+                    <div class="row mt-lg-5 mt-3 justify-content-lg-start justify-content-lg-left justify-content-between px-lg-0 px-0" id="products_list">
 
                     </div>
-                    <div class="row mt-lg-4 mt-1">
+                    <div class="row mt-lg-4 mt-1 d-none">
                         <div class="col-12">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination pg-amber justify-content-center">
@@ -88,7 +92,7 @@
         </div>
 
 
-<div class="mobile-backdrop"></div>
+
     <div class="sidebar" id="mobile-catalog">
         <i class="fas fa-times position-absolute fa-lg close-mobile-catalog" style="top:2%; right:10%;"></i>
         <div class="p-4">
@@ -104,18 +108,18 @@
 @push('scripts')
     <script>
         $('.catalog-list').on('click', function () {
-            document.getElementById('mobile-catalog').style.left = "0px";
+            document.getElementById('mobile-catalog').style.right = "0px";
             $('.mobile-backdrop').show();
         });
 
         $('.mobile-backdrop').click(function () {
             $('.mobile-backdrop').hide();
-            document.getElementById('mobile-catalog').style.left = "-300px";
+            document.getElementById('mobile-catalog').style.right = "-300px";
         });
 
         $('.close-mobile-catalog').click(function () {
             $('.mobile-backdrop').hide();
-            document.getElementById('mobile-catalog').style.left = "-300px";
+            document.getElementById('mobile-catalog').style.right = "-300px";
         });
     </script>
     <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
@@ -183,6 +187,8 @@
                 //     $('h2[data-parent="title"]').text('Наши производители');
                 // }
             }
+            $('.mobile-backdrop').hide();
+            document.getElementById('mobile-catalog').style.left = "-300px";
             // console.log(input.data('id'));
             let isChecked = (input.hasClass('active') == true ? true : false);
             let id = input.data('id');
@@ -255,6 +261,7 @@
                             }
                         }
                     }
+
                     pagination.find('.page-link').each((e, i) => {
                         registerPageButtons($(i));
                     });
@@ -316,20 +323,20 @@
         fetchProductions(params);
     </script>
     <script>
-        $('.color-filter').click(function (e) {
-            var item = $(e.currentTarget);
-
-            if (item.hasClass('active') == true)
-            {
-                item.removeClass('active');
-                $('.color-list').hide();
-            }
-            else
-            {
-                item.addClass('active');
-                $('.color-list').show();
-            }
-        });
+        // $('.color-filter').click(function (e) {
+        //     var item = $(e.currentTarget);
+        //
+        //     if (item.hasClass('active') == true)
+        //     {
+        //         item.removeClass('active');
+        //         $('.color-list').hide();
+        //     }
+        //     else
+        //     {
+        //         item.addClass('active');
+        //         $('.color-list').show();
+        //     }
+        // });
 
         $('.color-item').click(function (e) {
             var choice = $(e.currentTarget);
@@ -350,20 +357,20 @@
         });
     </script>
     <script>
-        $('.price-filter').click(function (e) {
-            var item = $(e.currentTarget);
-
-            if (item.hasClass('active') == true)
-            {
-                item.removeClass('active');
-                $('.price-list').hide();
-            }
-            else
-            {
-                item.addClass('active');
-                $('.price-list').show();
-            }
-        });
+        // $('.price-filter').click(function (e) {
+        //     var item = $(e.currentTarget);
+        //
+        //     if (item.hasClass('active') == true)
+        //     {
+        //         item.removeClass('active');
+        //         $('.price-list').hide();
+        //     }
+        //     else
+        //     {
+        //         item.addClass('active');
+        //         $('.price-list').show();
+        //     }
+        // });
 
         $('.price-item').click(function (e) {
             var choice = $(e.currentTarget);
