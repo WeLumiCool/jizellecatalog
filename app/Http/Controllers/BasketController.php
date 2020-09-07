@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Mail\send;
 use App\Product;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class BasketController extends Controller
 //        $count = Session::get('cart');
 
         $products = Session::get('cart');
+
 
         return view('basket.index',['products' => $products]);
     }

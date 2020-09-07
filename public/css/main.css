@@ -139,7 +139,7 @@ html,body
     position: fixed;
     background: rgba(128, 128, 128, 0.36);
     display:none;
-    z-index:9999;
+    z-index:999;
 }
 .social {
     padding:15px;

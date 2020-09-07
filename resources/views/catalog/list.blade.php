@@ -4,26 +4,27 @@
 <div class="col-lg-4 col-6 px-lg-4 px-1 mb-lg-5 mb-4">
     <div class="bg-white position-relative h-100" style="box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.14);">
         <img class="w-100" style="cursor: pointer;" data-toggle="modal" data-target="#product-{{$product->id}}" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
-        <div class="p-3">
+        <div class="p-3" style="">
             <p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>
-            <p class="font-size-18 text-dark mb-1 line-height-110">{{ $product->title }}</p>
+            <p class="font-size-18 text-dark mb-1 line-height-110" style="height: 40px; overflow-y: hidden;">{{ $product->title }}</p>
             <div class="d-flex">
                 @foreach($product->colors as $color)
-                    <div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color: {{ $color->color }}"></div>
+                    <div class="mr-1 rounded-circle" style="border: 1px solid #656565; width:20px; height:20px; background-color: {{ $color->color }}"></div>
                 @endforeach
             </div>
             {{--<div class="d-flex justify-content-start mt-2">--}}
 
             {{--</div>--}}
-            <div class="d-flex justify-content-between mt-2">
+            <div class="d-flex justify-content-between mt-2 position-relativex" style="bottom: 0%;">
                 <div>
                 <p class="font-size-12 mb-0 text-secondary font-weight-light">Размер: {{ $product->size }}</p>
-                <p class="font-size-12 text-secondary font-weight-light mb-0">{{ $product->price }} руб</p>
+                <p class="font-size-12 text-secondary font-weight-bold mb-0">{{ $product->price }} руб</p>
                 </div>
                     <div class="d-flex align-items-center justify-content-center order-settings" data-id="{{$product->id}}" style=" background: #2F2F2F; cursor: pointer; transition: 0.5s">
                         <img src="{{ asset('images/addcart.svg') }}" alt="">
                 </div>
             </div>
+
         </div>
         <div class="position-absolute w-100 h-100 px-2 py-lg-5 py-2 bg-white" id="settings-{{$product->id}}" style="top:0%; left:0%; display: none;">
             <img class="position-absolute" style="right:6%; top:2%; cursor: pointer;" id="close" data-id="{{ $product->id }}" src="{{ asset('images/close.svg') }}" alt="">

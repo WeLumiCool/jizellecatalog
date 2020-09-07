@@ -37,6 +37,17 @@
 ?>
     <div id="app">
         <div class="mobile-backdrop"></div>
+        <div class="sidebar" id="mobile-catalog">
+            <i class="fas fa-times position-absolute fa-lg close-mobile-catalog" style="top:2%; right:10%;"></i>
+            <div class="p-4">
+                <p class="font-size-18 font-weight-bold mb-5">Каталог</p>
+
+                <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="all">Весь каталог</p>
+                @foreach($categories as $category)
+                    <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</p>
+                @endforeach
+            </div>
+        </div>
         @include('partials.header')
         <main class="py-4">
             @yield('content')
@@ -95,6 +106,8 @@
 
 
                         <div class="position-absolute w-100 h-100 px-2 py-lg-5 py-2 bg-white shadow-lg" id="settings-modal-{{$product->id}}" style="top:0%; left:0%; display: none; z-index: 99999;">
+                            <div class="d-flex h-100 align-items-center">
+                                <div class="w-100">
                             <img class="position-absolute" style="right:6%; top:2%; cursor: pointer;" id="close-modal" data-id="{{ $product->id }}" src="{{ asset('images/close.svg') }}" alt="">
                             <div>
                                 <p class="font-size-16 font-weight-bold text-center">Параметры</p>
@@ -130,7 +143,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn py-2 text-white position-absolute add-to-cart-modal" data-id="{{ $product->id }}" style="background: #2F2F2F; cursor: pointer;bottom: 30%; width: 90%; left:5%;">В корзину</button>
+                            </div>
+                            </div>
+                            <button class="btn py-2 text-white position-absolute add-to-cart-modal" data-id="{{ $product->id }}" style="background: #2F2F2F; cursor: pointer;bottom: 20%; width: 90%; left:5%;">В корзину</button>
+
                         </div>
                     </div>
                 </div>
@@ -177,23 +193,38 @@
         /></noscript>
     <!-- End Facebook Pixel Code -->
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(66499177, "init", {
+    ym(66499177, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
         webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/66499177" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/66499177" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 @stack('scripts')
+<script>
+    $('.catalog-list').on('click', function () {
+        document.getElementById('mobile-catalog').style.right = "0px";
+        $('.mobile-backdrop').show();
+    });
 
+    $('.mobile-backdrop').click(function () {
+        $('.mobile-backdrop').hide();
+        document.getElementById('mobile-catalog').style.right = "-300px";
+    });
+
+    $('.close-mobile-catalog').click(function () {
+        $('.mobile-backdrop').hide();
+        document.getElementById('mobile-catalog').style.right = "-300px";
+    });
+</script>
 <script>
     function preloader() {
         // ymaps.ready(init);

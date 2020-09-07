@@ -43,7 +43,7 @@
                                 <div class="position-absolute bg-white border p-2 color-list dropdown-menu" aria-labelledby="dropdowncolor">
                                     <div class="d-flex align-items-center color-item" data-value="none"><div style="width:15px; height:15px; border-radius:50%; background-color: transparent"></div><span class="color-point ml-3">Все цвета</span></div>
                                     @foreach(\App\Color::all() as $color)
-                                        <div class="d-flex align-items-center color-item" data-value="{{ $color->id }}"><div style="width:15px; height:15px; border-radius:50%; background-color: {{$color->color}}"></div><span class="color-point ml-3">{{$color->title}}</span></div>
+                                        <div class="d-flex align-items-center color-item" data-value="{{ $color->id }}"><div class="border" style="width:15px; height:15px; border-radius:50%; background-color: {{$color->color}}"></div><span class="color-point ml-3">{{$color->title}}</span></div>
                                     @endforeach
                                 </div>
                             </div>
@@ -93,35 +93,10 @@
 
 
 
-    <div class="sidebar" id="mobile-catalog">
-        <i class="fas fa-times position-absolute fa-lg close-mobile-catalog" style="top:2%; right:10%;"></i>
-        <div class="p-4">
-            <p class="font-size-18 font-weight-bold mb-5">Каталог</p>
 
-            <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="all">Весь каталог</p>
-            @foreach($categories as $category)
-                <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</p>
-            @endforeach
-        </div>
-    </div>
 @endsection
 @push('scripts')
-    <script>
-        $('.catalog-list').on('click', function () {
-            document.getElementById('mobile-catalog').style.right = "0px";
-            $('.mobile-backdrop').show();
-        });
 
-        $('.mobile-backdrop').click(function () {
-            $('.mobile-backdrop').hide();
-            document.getElementById('mobile-catalog').style.right = "-300px";
-        });
-
-        $('.close-mobile-catalog').click(function () {
-            $('.mobile-backdrop').hide();
-            document.getElementById('mobile-catalog').style.right = "-300px";
-        });
-    </script>
     <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
     <script>
         function paginationWithDots(c, m) {
@@ -188,7 +163,7 @@
                 // }
             }
             $('.mobile-backdrop').hide();
-            document.getElementById('mobile-catalog').style.left = "-300px";
+            document.getElementById('mobile-catalog').style.right = "-300px";
             // console.log(input.data('id'));
             let isChecked = (input.hasClass('active') == true ? true : false);
             let id = input.data('id');
