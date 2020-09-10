@@ -5,7 +5,6 @@
 
     $agent = new Agent();
     ?>
-    @dd($categories)
     {{--@dd(\Illuminate\Support\Facades\Session::all())--}}
     <div class="container mb-5" style="margin-top: 120px">
         <div class="row mb-4">

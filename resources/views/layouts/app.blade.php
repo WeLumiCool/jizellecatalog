@@ -43,7 +43,7 @@
                 <p class="font-size-18 font-weight-bold mb-5">Каталог</p>
 
                 <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="all">Весь каталог</p>
-                @foreach($categories as $category)
+                @foreach(\App\Category::all() as $category)
                     <p class="font-size-18 btn-link font-weight-light mb-1 text-dark" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</p>
                 @endforeach
             </div>
