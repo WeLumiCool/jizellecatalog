@@ -55,7 +55,7 @@
     }
 </script>
 <script>
-    setTimeout(preloader, 500);
+    setTimeout(preloader);
 </script>
 </body>
 </html>
