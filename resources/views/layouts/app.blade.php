@@ -157,7 +157,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="http://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 <script>
     (function(w,d,u){
         var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
@@ -256,7 +256,7 @@
     }
 </script>
 <script>
-    setTimeout(preloader, 500);
+    setTimeout(preloader);
 </script>
     <script>
         $(document).on('click', '.add-to-cart', function (e) {
