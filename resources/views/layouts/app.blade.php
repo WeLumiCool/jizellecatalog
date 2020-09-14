@@ -227,32 +227,31 @@
 </script>
 <script>
     function preloader() {
-        // ymaps.ready(init);
+        ymaps.ready(init);
 
-        // function init() {
-        //     // Данные о местоположении, определённом по IP
-        //     var geolocation = ymaps.geolocation,
-        //         // координаты
-        //         coords = [geolocation.latitude, geolocation.longitude],
-        //         myMap = new ymaps.Map('info_map_ip', {
-        //             center: coords,
-        //             zoom: 10
-        //         });
-        //     /*
-        //     alert(geolocation.country);
-        //     alert(geolocation.city);
-        //     alert(geolocation.region);
-        //     */
-        //     if(geolocation.country.indexOf('Киргизия') >= 0) {
-        //         //if(geolocation.region.indexOf('Москва') < 0) {
-        //         window.location.href = '/404';
-        //     }
-        //     else
-        //     {
+        function init() {
+            // Данные о местоположении, определённом по IP
+            var geolocation = ymaps.geolocation,
+                // координаты
+                coords = [geolocation.latitude, geolocation.longitude],
+                myMap = new ymaps.Map('info_map_ip', {
+                    center: coords,
+                    zoom: 10
+                });
+            /*
+            alert(geolocation.country);
+            alert(geolocation.city);
+            alert(geolocation.region);
+            */
+            if(geolocation.country.indexOf('Киргизия') >= 0) {
+                //if(geolocation.region.indexOf('Москва') < 0) {
+                window.location.href = '/location_error';
+            }
+            else
+            {
                 $('.preloader').fadeOut('slow').delay(1000);
-            // }
-
-        // }
+            }
+        }
 
     }
 </script>

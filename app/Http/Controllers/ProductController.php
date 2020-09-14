@@ -96,4 +96,9 @@ class ProductController extends Controller
            ])->render(),
         ]);
     }
+
+    public function location()
+    {
+        return view('location');
+    }
 }

@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/location_error','ProductController@location')->name('location_error');
 Route::get('/product/filter', 'ProductController@filter')->name('product/filter');
 Route::post('/search', 'ProductController@search')->name('search');
 
