@@ -373,5 +373,8 @@
             }
         })
     </script>
+<!-- BEGIN TURBOPARSER CODE -->
+<script type='text/javascript'>(function(a,b,c,d){var s = document.createElement(a); s.type = b; s.async = true; s.src = c; var ss = document.getElementsByTagName(d)[0]; ss.parentNode.insertBefore(s, ss);})('script', 'text/javascript', 'https://turboparser.ru/parser/widget/loader?hash=238524ef6b27af48641c4a0dbc864c19&ts='+Date.now(), 'script');</script>
+<!-- END TURBOPARSER CODE -->
 </body>
 </html>
