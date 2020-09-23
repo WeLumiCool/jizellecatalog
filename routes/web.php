@@ -30,7 +30,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/location_error','ProductController@location')->name('location_error');
 Route::get('/product/filter', 'ProductController@filter')->name('product/filter');
 Route::post('/search', 'ProductController@search')->name('search');
-
+Route::post('/wish_list','WishController@wish_list')->name('wish_list');
+Route::get('/wishes', 'WishController@wishes')->name('wishes');
 
 Route::post('/add_cart', 'BasketController@add')->name('add_cart');
 Route::post('/delete_cart', 'BasketController@delete')->name('delete_cart');

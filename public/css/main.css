@@ -205,6 +205,9 @@ html,body
 .main-block {
     margin-top: 120px;
 }
+.wish-list:hover .wish-list-content {
+    display: flex!important;
+}
 @media screen and (max-width: 768px)
 {
     .order-settings {

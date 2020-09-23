@@ -4,12 +4,14 @@
 {{--//        $product = \App\Product::all()->first();--}}
 {{--//        dd($product->colors);--}}
 {{--//    ?>--}}
+
         <div class="container main-block">
             <div class="row mb-4 d-lg-block d-none">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-9 col-12">
                     <p class="font-size-20">Весь каталог</p>
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-lg-3 d-lg-block d-none">

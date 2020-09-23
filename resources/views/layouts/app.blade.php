@@ -25,6 +25,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 <body>
 <div class="preloader">
@@ -153,11 +154,19 @@
             </div>
         </div>
     @endforeach
+@include('modals.wish_list')
+<div class="position-fixed rounded-circle d-flex align-items-center justify-content-center wish-list" data-toggle="modal" data-target="#wish-list" style="bottom:150px; right:55px; width: 60px; height:60px; background-color: rgba(241,199,18,0.6); z-index: 10; cursor: pointer">
+    <i class="fas fa-star fa-lg text-white"></i>
+    <div class="position-absolute align-items-center pl-3 wish-list-content" style="width: 150px; right:90%; top:25%; height:50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; background-color: rgba(241,199,18,0.6); display: none;">Список желаний</div>
+</div>
+
     <div id="info_map_ip" style="width:1px; height:1px;display:none;opacity:0;"></div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
     (function(w,d,u){
         var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
@@ -356,6 +365,62 @@
         $('#table').modal('show');
         $('.productions').modal('hide');
     });
+</script>
+<script>
+    $('.wish-list-form').submit(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        let form = $(this);
+        let url = form.attr('action');
+        var formData = new FormData();
+        formData.set('_token', '{{ csrf_token() }}');
+        formData.set('name', document.getElementById('name').value);
+        formData.set('desc', document.getElementById('desc').value);
+        // formData.set('photos', document.getElementById('photos').files);
+        formData.set('phone', document.getElementById('phone').value);
+        formData.set('email', document.getElementById('email').value);
+        var ins = document.getElementById('photos').files.length;
+        for (var x = 0; x < ins; x++) {
+            formData.append("photos[]", document.getElementById('photos').files[x]);
+        }
+        // console.log($('#photos').val());
+        // formData.append( 'action','uploadImages');
+        // $.each(document.getElementById('photos').files, function(i, obj) {
+        //     $.each(obj.files,function(j, file){
+        //         formData.append('photo['+j+']', file);
+        //     })
+        // });
+        // formData.set('id', this.$store.state.news ? this.$store.state.news : null);
+        console.log();
+        // fd.append('files',files);
+        // console.log(fd);
+        $('#wish-list').modal('hide');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+
+            // serializes the form's elements.
+            success: function (data) {
+                if (data.status == 'success') {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Спасибо за заявку!',
+                        desc: 'Мы свяжемся с вами в ближайшее время'
+                    });
+                } else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Вы уже отправляли заявку!',
+                    });
+                }
+            }
+        });
+    })
 </script>
     <script>
         var owl = $('.owl-one');
