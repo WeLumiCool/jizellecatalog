@@ -19,6 +19,11 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/jizelle_company', function () {
+   return view('jizelle_open', [
+       'categories' => \App\Category::all(),
+   ]) ;
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
