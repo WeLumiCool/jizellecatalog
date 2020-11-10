@@ -24,8 +24,15 @@ Route::get('/', function () {
 });
 
 Route::get('/jizelle_company', function () {
+    $cat_id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
+    $categories = \App\Category::where('parent_id', $cat_id)->get();
+
+//    return view('catalog.show', ['categories' => $categories, 'id' => $id, 'id2' => $type, 'cat_id' => $cat_id]);
    return view('jizelle_open', [
-       'categories' => \App\Category::all(),
+       'categories' => $categories,
+       'id' => null,
+       'id2' => null,
+       'cat_id' => $cat_id
    ]) ;
 });
 
