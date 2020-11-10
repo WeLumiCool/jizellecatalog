@@ -4,8 +4,9 @@
     use Jenssegers\Agent\Agent;
 
     $agent = new Agent();
+
     ?>
-    {{--@dd(\Illuminate\Support\Facades\Session::all())--}}
+{{--    @dd(\Illuminate\Support\Facades\Session::get('cart'))--}}
     <div class="container mb-5" style="margin-top: 120px">
         <div class="row mb-4">
             <div class="col-12 mb-5">
@@ -18,6 +19,7 @@
         @if($products != null)
 
         @foreach($products as $key => $item)
+{{--            @dd($item)--}}
                 {{--@dd(\App\Color::find($item['color'])->color)--}}
                 <?php
                 $product = \App\Product::find($item['id']);
@@ -26,47 +28,80 @@
 
 
                 <div id="basket-{{ $key }}">
-                    <div class="row mb-2">
+                    <div class="row mb-2 justify-content-center">
                         <div class="col-lg-1 col-6">
                             <img class="img-fluid" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
                         </div>
+                        <div class="col-12"></div>
                         <div class="col-lg-3 col-6">
-                            <p class="font-size-16 font-weight-light mb-1"> {{ $product->title }}</p>
-                            <p class="font-size-16 font-weight-light mb-1"> Артикль: {{ $product->article }}</p>
-                            <p class="font-size-16 font-weight-light mb-1">Размер: {{ $item['size'] }}</p>
-                            <p class="font-size-16 font-weight-light mb-1">Кол-во: {{ $item['count'] }}</p>
-                            <div class="d-flex">
-                                    <div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color: {{ \App\Color::find($item['color'])->color }};"></div>
+                            <p class="font-size-14 font-weight-light mb-1"> {{ $product->title }}</p>
+                            <p class="font-size-14 font-weight-light mb-1"> Артикль: {{ $product->article }}</p>
+                            <p class="font-size-14 font-weight-light mb-1">Цена розница: <span class="font-weight-normal">{{ $product->price }}</span> руб</p>
+                            <p class="font-size-14 font-weight-light mb-1">Цена оптом: <span class="font-weight-normal">{{ $product->price_opt }}</span> руб</p>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                @if($item['kind'] == 2)
+                                @foreach($item['content'] as $content)
+                                    @if((int)$content['count'] != 0)
+                                        <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $content['size'] }} размер</span> : {{ (int)$content['count']}} единиц</p>
+                                    @endif
+                                @endforeach
+                                @elseif($item['kind'] == 1)
+                                @foreach($product->sizes as $size)
+                                    <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $size->size }} размер</span> : {{ (int)$content['content'] }} единиц</p>
+                                @endforeach
+                                @endif
                             </div>
+                        </div>
+                        <div class="col-8 d-flex align-items-center">
+                            <p class="font-size-14 font-weight-light mb-0">Цена товара: {{$item['price']}} руб.</p>
+                        </div>
+                        <div class="col-4 d-flex pr-4 justify-content-end">
                             <div class="d-flex align-items-center mt-4">
                                 <div class="p-2 bg-danger rounded cart-delete" style="cursor: pointer;" data-id="{{ $key }}"><i class="far fa-trash-alt fa-lg text-white"></i></div>
                             </div>
-
                         </div>
                     </div>
                     <hr>
                 </div>
                 @else
-            <div id="basket-{{ $key }}">
+            <div id="basket-{{ $product['id'] }}">
             <div class="row mb-2">
-                <div class="col-lg-1 col-6">
+                <div class="col-lg-2 col-6">
                     <img class="img-fluid" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
                 </div>
                 <div class="col-lg-3 col-6 d-flex align-items-center ">
-                    <p class="font-size-16 font-weight-light"> {{ $product->title }} <br>
-                        Артикль: {{ $product->article }}</p>
-                </div>
-                <div class="col-lg-3 col-6 d-flex align-items-center">
-                    <p class="font-size-16 font-weight-light"> Размер: {{ $item['size'] }} <br>
-                        Кол-во: {{ $item['count'] }}</p>
-                </div>
-                <div class="col-lg-3 col-6 d-flex align-items-center">
-                    <div class="d-flex">
-                        <div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color:{{ \App\Color::find($item['color'])->color }};"></div>
+                    <div>
+                    <p class="font-size-16 font-weight-light mb-0"> {{ $product->title }} <br>
+                        Артикль: <span class="font-weight-normal">{{ $product->article }}</span></p>
+                    <p class="font-size-16 font-weight-light mb-0">Цена розница: <span class="font-weight-normal">{{ $product->price }}</span> руб</p>
+                    <p class="font-size-16 font-weight-light mb-0">Цена оптом: <span class="font-weight-normal">{{ $product->price_opt }}</span> руб</p>
                     </div>
                 </div>
+                <div class="col-3 d-flex align-items-center">
+                    <div>
+                        @if($item['kind'] == 2)
+                    @foreach($item['content'] as $content)
+                        @if((int)$content['count'] != 0)
+                            <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $content['size'] }} размер</span> : {{ (int)$content['count']}} единиц</p>
+                        @endif
+                    @endforeach
+                        @elseif($item['kind'] == 1)
+                            @foreach($product->sizes as $size)
+                                <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $size->size }} размер</span> : {{ (int)$item['content'] }} единиц</p>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="col-2 d-flex align-items-center">
+                    {{$item['price']}} руб.
+                </div>
                 <div class="col-2 d-flex align-items-center justify-content-center">
-                    <div class="p-2 bg-danger rounded cart-delete" style="cursor: pointer;" data-id="{{ $key }}"><i class="far fa-trash-alt fa-lg text-white"></i></div>
+                    <div class="p-2 bg-danger rounded cart-delete" style="cursor: pointer;" data-id="{{ $product['id'] }}"><i class="far fa-trash-alt fa-lg text-white"></i></div>
+                </div>
+                <div class="col-12 py-1">
+                    <a href="{{ route('product/show', $product->id) }}">Перейти к товару</a>
                 </div>
             </div>
             <hr>

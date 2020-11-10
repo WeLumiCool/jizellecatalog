@@ -9,7 +9,7 @@
 
     <title>Jizelle</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo.svg') }}">
-
+    @stack('styles')
     <!-- Scripts -->
 
 
@@ -36,7 +36,7 @@
 <?php
     $agent = new \Jenssegers\Agent\Agent();
 ?>
-    <div id="app">
+    <div class="" id="app">
         <div class="mobile-backdrop"></div>
         <div class="sidebar" id="mobile-catalog">
             <i class="fas fa-times position-absolute fa-lg close-mobile-catalog" style="top:2%; right:10%;"></i>
@@ -50,114 +50,114 @@
             </div>
         </div>
         @include('partials.header')
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
         @include('partials.footer')
     </div>
 
     @include('modals.size_table')
-    @foreach(\App\Product::all() as $product)
-        <div class="modal productions fade" id="product-{{$product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <button type="button" class="close position-absolute" style="right:5%; top:5%; z-index:9999;" data-dismiss="modal" aria-label="Close">
-                        <img src="{{ asset('images/close.svg') }}" alt="">
-                    </button>
-                    <div class="modal-body text-center p-0">
-                        <div class="px-lg-0 px-0 owl-one owl-carousel text-center">
-                            @foreach(json_decode($product->image) as $image)
-                                <div class="item">
-                                    <img class="w-100" src="{{ asset('storage/'.$image) }}" alt="">
-                                </div>
-                            @endforeach
+    {{--@foreach(\App\Product::all() as $product)--}}
+        {{--<div class="modal productions fade" id="product-{{$product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
+            {{--<div class="modal-dialog modal-dialog-centered">--}}
+                {{--<div class="modal-content">--}}
+                    {{--<button type="button" class="close position-absolute" style="right:5%; top:5%; z-index:9999;" data-dismiss="modal" aria-label="Close">--}}
+                        {{--<img src="{{ asset('images/close.svg') }}" alt="">--}}
+                    {{--</button>--}}
+                    {{--<div class="modal-body text-center p-0">--}}
+                        {{--<div class="px-lg-0 px-0 owl-one owl-carousel text-center">--}}
+                            {{--@foreach(json_decode($product->image) as $image)--}}
+                                {{--<div class="item">--}}
+                                    {{--<img class="w-100" src="{{ asset('storage/'.$image) }}" alt="">--}}
+                                {{--</div>--}}
+                            {{--@endforeach--}}
                             {{--<div class="item">--}}
                                 {{--<img class="w-100" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">--}}
                             {{--</div>--}}
                             {{--<div class="item">--}}
                                 {{--<img class="w-100" src="{{ asset('storage/'.json_decode($product->image)[1]) }}" alt="">--}}
                             {{--</div>--}}
-                        </div>
-                        <div class="container pb-3">
-                        <div class="d-flex">
-                            <div class="col-8">
-                                <div class="text-left px-lg-4 px-1">
-                                    <p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>
-                                    <p class="font-size-18 text-dark mb-1">{{ $product->title }}</p>
-                                    <div class="d-flex">
-                                        @foreach($product->colors as $color)
-                                            <div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color: {{ $color->color }}"></div>
-                                        @endforeach
-                                    </div>
-                                    <p style="cursor: pointer;" class="font-size-12 text-dark mb-1 mt-2 tabled text-left">Таблица размеров</p>
-                                </div>
-                            </div>
-                            <div class="col-4 px-lg-3 px-0">
-                                <div class="d-flex align-items-center justify-content-center order-modal-settings mt-3 py-2" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">
-                                    <img src="{{ asset('images/addcart.svg') }}" alt="">
-                                </div>
+                        {{--</div>--}}
+                        {{--<div class="container pb-3">--}}
+                        {{--<div class="d-flex">--}}
+                            {{--<div class="col-8">--}}
+                                {{--<div class="text-left px-lg-4 px-1">--}}
+                                    {{--<p class="font-size-12 text-secondary font-weight-light mb-1">{{$product->article}}</p>--}}
+                                    {{--<p class="font-size-18 text-dark mb-1">{{ $product->title }}</p>--}}
+                                    {{--<div class="d-flex">--}}
+                                        {{--@foreach($product->colors as $color)--}}
+                                            {{--<div class="mr-1 rounded-circle" style="width:20px; height:20px; background-color: {{ $color->color }}"></div>--}}
+                                        {{--@endforeach--}}
+                                    {{--</div>--}}
+                                    {{--<p style="cursor: pointer;" class="font-size-12 text-dark mb-1 mt-2 tabled text-left">Таблица размеров</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-4 px-lg-3 px-0">--}}
+                                {{--<div class="d-flex align-items-center justify-content-center order-modal-settings mt-3 py-2" data-id="{{ $product->id }}" style="width: 80px; background: #2F2F2F; cursor: pointer; transition: 0.5s">--}}
+                                    {{--<img src="{{ asset('images/addcart.svg') }}" alt="">--}}
+                                {{--</div>--}}
 
-                            </div>
-                        </div>
-                            <div class="mt-3 px-lg-4 px-1 font-size-16 font-weight-light text-left line-height-110 descer">
-                                    {!!$product->description!!}
-                            </div>
-                        </div>
+                            {{--</div>--}}
+                        {{--</div>--}}
+                            {{--<div class="mt-3 px-lg-4 px-1 font-size-16 font-weight-light text-left line-height-110 descer">--}}
+                                    {{--{!!$product->description!!}--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
 
 
-                        <div class="position-absolute w-100 h-100 px-2 py-lg-5 py-2 bg-white shadow-lg" id="settings-modal-{{$product->id}}" style="top:0%; left:0%; display: none; z-index: 99999;">
-                            <div class="d-flex h-100 align-items-center">
-                                <div class="w-100">
-                            <img class="position-absolute" style="right:6%; top:2%; cursor: pointer;" id="close-modal" data-id="{{ $product->id }}" src="{{ asset('images/close.svg') }}" alt="">
-                            <div>
-                                <p class="font-size-16 font-weight-bold text-center">Параметры</p>
-                                <div class="form-group">
-                                    <label class="font-size-12" for="size-modal-{{$product->id}}">Выберите размер</label>
-                                    <select class="form-control" id="size-modal-{{$product->id}}">
-                                        <option>52</option>
-                                        <option>54</option>
-                                        <option>56</option>
-                                        <option>58</option>
-                                        <option>60</option>
-                                        <option>62</option>
-                                    </select>
-                                </div>
+                        {{--<div class="position-absolute w-100 h-100 px-2 py-lg-5 py-2 bg-white shadow-lg" id="settings-modal-{{$product->id}}" style="top:0%; left:0%; display: none; z-index: 99999;">--}}
+                            {{--<div class="d-flex h-100 align-items-center">--}}
+                                {{--<div class="w-100">--}}
+                            {{--<img class="position-absolute" style="right:6%; top:2%; cursor: pointer;" id="close-modal" data-id="{{ $product->id }}" src="{{ asset('images/close.svg') }}" alt="">--}}
+                            {{--<div>--}}
+                                {{--<p class="font-size-16 font-weight-bold text-center">Параметры</p>--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label class="font-size-12" for="size-modal-{{$product->id}}">Выберите размер</label>--}}
+                                    {{--<select class="form-control" id="size-modal-{{$product->id}}">--}}
+                                        {{--<option>52</option>--}}
+                                        {{--<option>54</option>--}}
+                                        {{--<option>56</option>--}}
+                                        {{--<option>58</option>--}}
+                                        {{--<option>60</option>--}}
+                                        {{--<option>62</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
 
-                                @if(count($product->colors) > 1)
-                                    <div class="form-group">
-                                        <label class="font-size-12" for="color-modal-{{$product->id}}">Выберите цвет</label>
-                                        <select class="form-control" id="color-modal-{{$product->id}}">
-                                            @foreach($product->colors as $color)
-                                                <option value="{{$color->id}}">{{$color->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                @else
-                                    <input type="text" hidden id="color-modal-{{$product->id}}" value="{{$product->colors[0]->id}}">
-                                @endif
+                                {{--@if(count($product->colors) > 1)--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--<label class="font-size-12" for="color-modal-{{$product->id}}">Выберите цвет</label>--}}
+                                        {{--<select class="form-control" id="color-modal-{{$product->id}}">--}}
+                                            {{--@foreach($product->colors as $color)--}}
+                                                {{--<option value="{{$color->id}}">{{$color->title}}</option>--}}
+                                            {{--@endforeach--}}
+                                        {{--</select>--}}
+                                    {{--</div>--}}
+                                {{--@else--}}
+                                    {{--<input type="text" hidden id="color-modal-{{$product->id}}" value="{{$product->colors[0]->id}}">--}}
+                                {{--@endif--}}
 
-                                <div class="form-group">
-                                    <div class="form-label-group">
-                                        <label class="font-size-12" for="count-modal-{{$product->id}}">Введите количество</label>
-                                        <input type="text" name="count" id="count-modal-{{$product->id}}" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Введите кол-во" required="" autofocus="">
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                            <button class="btn py-2 text-white position-absolute add-to-cart-modal" data-id="{{ $product->id }}" style="background: #2F2F2F; cursor: pointer;bottom: 20%; width: 90%; left:5%;">В корзину</button>
+                                {{--<div class="form-group">--}}
+                                    {{--<div class="form-label-group">--}}
+                                        {{--<label class="font-size-12" for="count-modal-{{$product->id}}">Введите количество</label>--}}
+                                        {{--<input type="text" name="count" id="count-modal-{{$product->id}}" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Введите кол-во" required="" autofocus="">--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<button class="btn py-2 text-white position-absolute add-to-cart-modal" data-id="{{ $product->id }}" style="background: #2F2F2F; cursor: pointer;bottom: 20%; width: 90%; left:5%;">В корзину</button>--}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--@endforeach--}}
 @include('modals.wish_list')
-<div class="position-fixed rounded-circle d-flex align-items-center justify-content-center wish-list" data-toggle="modal" data-target="#wish-list" style="bottom:150px; right:55px; width: 60px; height:60px; background-color: rgba(241,199,18,0.6); z-index: 10; cursor: pointer">
+<div class="position-fixed rounded-circle d-flex align-items-center justify-content-center wish-list" data-toggle="modal" data-target="#wish-list" style="bottom:150px; right:55px; width: 60px; height:60px; background-color: rgb(241,199,18); z-index: 10; cursor: pointer">
     <i class="fas fa-star fa-lg text-white"></i>
-    <div class="position-absolute align-items-center pl-3 wish-list-content" style="width: 150px; right:90%; top:25%; height:50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; background-color: rgba(241,199,18,0.6); display: none;">Список желаний</div>
+    <div class="position-absolute align-items-center pl-3 wish-list-content" style="width: 150px; right:90%; top:25%; height:50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; background-color: rgb(241,199,18); display: none;">Список желаний</div>
 </div>
 
     <div id="info_map_ip" style="width:1px; height:1px;display:none;opacity:0;"></div>
@@ -438,8 +438,42 @@
             }
         })
     </script>
-<!-- BEGIN TURBOPARSER CODE -->
-<script type='text/javascript'>(function(a,b,c,d){var s = document.createElement(a); s.type = b; s.async = true; s.src = c; var ss = document.getElementsByTagName(d)[0]; ss.parentNode.insertBefore(s, ss);})('script', 'text/javascript', 'https://turboparser.ru/parser/widget/loader?hash=238524ef6b27af48641c4a0dbc864c19&ts='+Date.now(), 'script');</script>
-<!-- END TURBOPARSER CODE -->
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop >= 50) {
+                $('.menuse').removeClass('shadow-none');
+                $('.menuse').addClass('solid-nav');
+                $('.menuse').addClass('py-0');
+                $('.menuse').removeClass('pt-3');
+            }
+            else
+            {
+                $('.menuse').addClass('shadow-none');
+                $('.menuse').removeClass('solid-nav');
+                $('.menuse').removeClass('py-0');
+                $('.menuse').addClass('pt-3');
+            }
+        });
+    });
+
+    $(document).on('click', '.navbar-toggler', function (e) {
+
+        var original = window.location.origin + '/';
+        var btn = $(e.currentTarget);
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop < 50 && btn.hasClass('collapsed') == false) {
+            $('.menuse').removeClass('shadow-none');
+            $('.menuse').addClass('solid-nav');
+            $('.menuse').removeClass('pt-3');
+
+        } else if (scrollTop < 50 && btn.hasClass('collapsed') == true) {
+            $('.menuse').removeClass('solid-nav');
+            $('.menuse').addClass('shadow-none');
+            $('.menuse').addClass('pt-3');
+        }
+    });
+</script>
 </body>
 </html>

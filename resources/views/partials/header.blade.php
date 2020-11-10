@@ -3,8 +3,8 @@ use Jenssegers\Agent\Agent;
 
 $agent = new Agent();
 ?>
-<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-    <div class="container pb-lg-4 pb-0 border-bottom">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top menuse shadow-none pt-3">
+    <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="img-fluid" src="{{ asset('images/logo.svg') }}" alt="">
         </a>
@@ -17,11 +17,11 @@ $agent = new Agent();
                     <img class="ml-3" src="{{ asset('images/cart.svg') }}" alt="">
                 </div>
             </a>
-            <i class="fas fa-bars fa-2x catalog-list"></i>
+            {{--<i class="fas fa-bars fa-2x catalog-list"></i>--}}
         @endif
-        {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
-            {{--<span class="navbar-toggler-icon"></span>--}}
-        {{--</button>--}}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -38,11 +38,16 @@ $agent = new Agent();
                         {{--<span style="cursor: pointer;" class="font-size-16 text-dark" data-toggle="modal" data-target="#table" >Таблица размеров</span>--}}
                     {{--</div>--}}
                     <div class="mt-2 d-flex align-items-center justify-content-lg-start justify-content-end">
-                        <div class="position-relative">
-                            <div class="position-absolute search-content bg-white rounded">
-                            </div>
-                        <input style="border: 1px solid #000000; box-sizing: border-box; border-radius: 5px; outline: none!important;" type="text" class="mr-3 px-2 font-size-14 line-height-120 h-100" id="search" placeholder="Поиск...">
-                        </div>
+                        <a href="/" style="text-decoration: none;">
+                            <p class="mb-0 menu-point openSans font-size-14 font-weight-bold mx-4 my-lg-0 my-2 text-dark">
+                                Главная
+                            </p>
+                        </a>
+                        <a href="{{ route('catalog') }}" style="text-decoration: none;">
+                            <p class="mb-0 menu-point openSans font-size-14 font-weight-bold mx-4 my-lg-0 my-2 text-dark">
+                                Каталог
+                            </p>
+                        </a>
                         @if(!$agent->isMobile())
                         <a href="{{ route('basket') }}">
                         <div class="position-relative">

@@ -5,15 +5,38 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
+
+    public function change_cat(Request $request)
+    {
+        $id = $request->id;
+
+        Session::put('category', $id);
+
+        return back();
+    }
+
+    public function index (Request $request)
+    {
+        $id = $request->category;
+        $type = $request->type;
+        $cat_id = Session::has('category') ? Session::get('category') : 15;
+        $categories = Category::where('parent_id', $cat_id)->get();
+
+        return view('catalog.show', ['categories' => $categories, 'id' => $id, 'id2' => $type, 'cat_id' => $cat_id]);
+    }
+
     public function filter(Request $request)
     {
         $params = $request->params;
         $color = $request->color;
         $price = $request->price;
-        $cats = Category::all();
+        $type = $request->type;
+        $cat_id = $request->cat_id;
+        $cats = Category::where('parent_id', $cat_id)->get();
         if ($params) {
             $cats = $cats->whereIn('id', $params);
         }
@@ -51,6 +74,21 @@ class ProductController extends Controller
             }
         }
         $products = $temp;
+        }
+
+        if ($request->type && $request->type != 'none')
+        {
+            $temp = collect();
+            foreach ($products as $product) {
+                if ($product->type)
+                {
+                    if ($product->type->id == $type)
+                    {
+                        $temp->push($product);
+                    }
+                }
+            }
+            $products = $temp;
         }
 
         if ($request->price == '1')
@@ -100,5 +138,38 @@ class ProductController extends Controller
     public function location()
     {
         return view('location');
+    }
+
+    public function show($id)
+    {
+//            dd(Session::get('cart'));
+        $product = Product::find($id);
+        $check = 0;
+        if (Session::has('cart')) {
+            $carts = Session::get('cart');
+            foreach ($carts as $cart) {
+                if ($cart['id'] == $product->id) {
+                    $bask = $cart;
+                    $check = 1;
+                }
+            }
+        }
+        if ($check == 0)
+        {
+            $bask = null;
+        }
+        $total = 0;
+        if (Session::get('cart')) {
+        foreach (Session::get('cart') as $parameter)
+        {
+            if ($parameter['id'] == $product->id)
+            {
+                $total = $parameter['price'];
+            }
+
+        }
+        }
+//        dd($total);
+        return view('catalog.single',['product' => $product, 'bask' => $bask, 'total' => $total]);
     }
 }

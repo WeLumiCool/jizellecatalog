@@ -11,7 +11,18 @@
         <br>
         <br>
         @foreach($products as $product)
-           {{$loop->index + 1}}) <strong>{{\App\Product::find($product['id'])->title}}</strong> артикль: <strong>{{ \App\Product::find($product['id'])->article }}</strong>  цвет: <strong>{{ \App\Color::find($product['color'])->title }}</strong>  кол-во: <strong>{{ $product['count'] }}</strong>
+           {{$loop->index + 1}}) <strong>{{\App\Product::find($product['id'])->title}}</strong> артикль: <strong>{{ \App\Product::find($product['id'])->article }}</strong>
+            <br>
+            @if($product['kind'] == 2)
+            @foreach($product['content'] as $parameter)
+                <span>{{$parameter['size']}} размер: {{$parameter['count']}} единиц,</span>
+                <br>
+            @endforeach
+            @elseif($product['kind'] == 1)
+                <span>Оптовая покупка: по {{ $product['content'] }} единиц</span>
+            @endif
+            <strong>Цена на товар:{{$product['price']}}</strong>
+            <br>
             <br>
         @endforeach
         <br>
