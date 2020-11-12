@@ -157,7 +157,7 @@
 @include('modals.wish_list')
 <div class="position-fixed rounded-circle d-flex align-items-center justify-content-center wish-list" data-toggle="modal" data-target="#wish-list" style="bottom:150px; right:55px; width: 60px; height:60px; background-color: rgb(241,199,18); z-index: 10; cursor: pointer">
     <i class="fas fa-star fa-lg text-white"></i>
-    <div class="position-absolute align-items-center pl-3 wish-list-content" style="width: 150px; right:90%; top:25%; height:50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; background-color: rgb(241,199,18); display: none;">Список желаний</div>
+    <div class="position-absolute align-items-center pl-3 wish-list-content" style="width: 150px; right:90%; top:25%; height:50%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; background-color: rgba(241,199,18,0.59);">Список желаний</div>
 </div>
 
     <div id="info_map_ip" style="width:1px; height:1px;display:none;opacity:0;"></div>
@@ -474,6 +474,7 @@
             $('.menuse').addClass('pt-3');
         }
     });
+
 </script>
 </body>
 </html>

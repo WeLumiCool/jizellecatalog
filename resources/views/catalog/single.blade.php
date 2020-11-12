@@ -350,11 +350,8 @@
             })
         </script>
         <script>
-
-        </script>
-        <script>
-            var stock = {{ $product->stock }};
-            var closed_count = 1000 - {{ $product->closed }};
+            var stock = {{ isset($product->stock) ? $product->stock : 0 }};
+            var closed_count = 1000 - {{ isset($product->closed) ? $product->stock : 0 }};
             var total = 0;
             var kind = 1;
 
@@ -387,7 +384,7 @@
                 $('.closed').html(closed_count);
                 document.querySelector('.closed-indikator').style.width = (100 / 1000 * (1000 - closed_count) + '%');
                 $('.stock').html(stock);
-            })
+            });
 
             $('.plus').click(function (e) {
                 var btn = $(e.currentTarget);
@@ -582,8 +579,8 @@
             });
         </script>
         <script>
-            var stock = {{ $product->stock }};
-            var closed_count = 1000 - {{ $product->closed }};
+            var stock = {{ isset($product->stock) ? $product->stock : 0 }};
+            var closed_count = 1000 - {{ isset($product->closed) ? $product->closed : 0}};
             var total = 0;
             var size_count = {{ $size_count }};
 

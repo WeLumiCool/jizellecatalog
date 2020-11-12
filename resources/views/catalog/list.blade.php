@@ -11,7 +11,8 @@ $agent = new \Jenssegers\Agent\Agent();
         @endif
         <img class="w-100" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
         <div class="p-3" style="">
-            <p class="font-size-18 text-dark mb-1 line-height-110 mb-2" style="height: 40px; overflow-y: hidden;">{{ $product->title }}</p>
+            <p class="font-size-18 text-dark mb-1 line-height-110 mb-0" style="height: 40px; overflow-y: hidden;">{{ $product->title }}</p>
+            <p class="font-size-16 font-weight-light text-dark mb-1 line-height-110 mb-0">{{ $product->article }}</p>
             <div class="row">
                 <div class="col-6">
                     <p class="font-size-14 font-weight-light openSans text-dark mb-0">

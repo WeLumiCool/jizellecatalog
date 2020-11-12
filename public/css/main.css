@@ -327,10 +327,21 @@ html,body
 .main-block {
     margin-top: 120px;
 }
-
-.wish-list:hover .wish-list-content {
-    display: flex!important;
+.wish-list-content
+{
+    display: flex;
+    opacity: 0;
+    transition: 0.5s;
 }
+.wish-list:hover .wish-list-content {
+    opacity: 1;
+}
+.dissapoint
+{
+    /*display: flex!important;*/
+    opacity: 1!important;
+}
+
 #settings
 {
     transition:0.5s;
@@ -381,8 +392,37 @@ html,body
     .main-block {
         margin-top:120px;
     }
-    .owl-second .owl-nav.disabled, .owl-comment .owl-nav.disabled
+    .owl-comment .owl-nav.disabled
     {
         display:none!important;
+    }
+    .owl-second .owl-nav .owl-prev
+    {
+        position: absolute;
+        right:15%;
+        top:-10%;
+        background-color: transparent!important;
+        background-image: url('../images/icons/secondslideleft.jpg') !important;
+        background-position: center!important;
+        background-size: cover!important;
+        background-repeat: no-repeat!important;
+        width:27px;
+        height:13px;
+        outline: none;
+    }
+
+    .owl-second .owl-nav .owl-next
+    {
+        position: absolute;
+        right:1%;
+        top:-10%;
+        background-color: transparent!important;
+        background-image: url('../images/icons/secondslideright.jpg') !important;
+        background-position: center!important;
+        background-size: cover!important;
+        background-repeat: no-repeat!important;
+        width:27px;
+        height:13px;
+        outline: none;
     }
 }

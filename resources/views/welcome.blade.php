@@ -225,6 +225,21 @@
 
 @push('scripts')
     <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop < 150 || 1200 < scrollTop )
+                {
+                    $('.wish-list-content').addClass('dissapoint');
+                }
+                else
+                {
+                    $('.wish-list-content').removeClass('dissapoint');
+                }
+            })
+        });
+    </script>
+    <script>
         var owl = $('.owl-main');
         owl.owlCarousel({
             margin: 10,
