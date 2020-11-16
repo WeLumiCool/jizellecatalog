@@ -353,11 +353,11 @@ html,body
     color: #000000;
 
 }
-.main-category.active
-{
-    text-decoration: underline;
-}
-.main-category:hover
+/*.main-category.active*/
+/*{*/
+    /*text-decoration: underline;*/
+/*}*/
+.main-category:hover, .main-category.active
 {
     color: white;
     background-color: rgba(218, 153, 102, 0.76);

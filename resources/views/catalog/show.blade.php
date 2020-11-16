@@ -4,7 +4,7 @@
     {{--//        $product = \App\Product::all()->first();--}}
     {{--//        dd($product->colors);--}}
     {{--//    ?>--}}
-{{--    {{ dd($type) }}--}}
+    {{--{{ dd($cat_id) }}--}}
     <?php
     use Jenssegers\Agent\Agent;
 
@@ -86,7 +86,19 @@
                      style="background-color: #F7F6FC;">
                     <div class="row justify-content-between">
                         <div class="col-7 d-flex align-items-center">
-                            <p class="font-size-20 mb-0">Весь каталог</p>
+                            <div class="position-relative">
+                            <p class="font-size-20 mb-0 mobile-selector">Весь каталог</p>
+                            <div class="form-group position-absolute" style="top:0%; left:0%; opacity: 0;">
+                                <select name="" id="" class="form-control category-picker">
+                                    <option data-value="0" value="all">Все категории</option>
+                                    @foreach($categories as $category)
+                                        @if(count($category->products))
+                                            <option data-value="1" value="{{$category->id}}" {{ $id == $category->id ? 'selected' : ''}}>{{ $category->title }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-2 pr-1 d-flex align-items-center">
                             <img class="w-50 show-settings" src="{{ asset('images/icons/sliders.svg') }}" alt="">
@@ -113,7 +125,7 @@
                                 <option data-value="0" value="all">Все категории</option>
                                 @foreach($categories as $category)
                                     @if(count($category->products))
-                                        <option data-value="1" value="{{$category->id}}">{{ $category->title }}</option>
+                                        <option data-value="1" value="{{$category->id}}" {{ $id == $category->id ? 'selected' : ''}}>{{ $category->title }}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -133,7 +145,7 @@
                             <select name="" id="" class="form-control type-picker">
                                 <option data-value="none" value="none">Все типы</option>
                                 @foreach(\App\Type::all() as $type)
-                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                    <option value="{{ $type->id }}" {{ $id2 == $type->id ? 'selected' : ''}}>{{ $type->title }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -490,6 +502,11 @@
 
             $('.close-settings').click(function () {
                 document.getElementById('settings').style.right = '-75%';
+            })
+        </script>
+        <script>
+            $('.mobile-selector').click(function () {
+                $('.category-picker').trigger('click');
             })
         </script>
     @endif
