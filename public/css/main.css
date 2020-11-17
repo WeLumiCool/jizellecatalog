@@ -7,7 +7,7 @@ html,body
     user-select: none;
 }
 .openSans {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans'!important;
 }
 .preloader {
     position: fixed;
