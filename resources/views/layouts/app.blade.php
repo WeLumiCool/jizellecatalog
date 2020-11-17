@@ -36,7 +36,7 @@
 <?php
     $agent = new \Jenssegers\Agent\Agent();
 ?>
-    <div class="" id="app">
+    <div class="position-relative" id="app">
         <div class="mobile-backdrop"></div>
         <div class="sidebar" id="mobile-catalog">
             <i class="fas fa-times position-absolute fa-lg close-mobile-catalog" style="top:2%; right:10%;"></i>
@@ -54,6 +54,7 @@
             @yield('content')
         </main>
         @include('partials.footer')
+
     </div>
 
     @include('modals.size_table')

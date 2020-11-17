@@ -4,59 +4,130 @@
     $agent = new \Jenssegers\Agent\Agent();
     ?>
     <div class="container-fluid px-0 owl-carousel owl-main" style="min-height: {{ $agent->isMobile() ? '80vh' : '100vh' }};">
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg1mob.jpg') : asset('images/mainbg1.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg5mob.jpg') : asset('images/mainbg5.jpg') }}); background-size: cover; background-position: center;">
             @if($agent->isDesktop())
-                <div class="container">
-                    <div class="row">
-                        <div class="col-7 d-flex align-items-center">
-                            <div>
-                                <p class="font-weight-bold text-white openSans mb-0 line-height-100" style="font-size: 85px;">
-                                    ЗАКАЗ
-                                </p>
-                                <p class="font-weight-bold text-white openSans mb-0 line-height-100" style="font-size: 85px;">
-                                    ОТ
-                                </p>
-                                <p class="font-weight-light text-white openSans mb-0 line-height-100" style="font-size: 85px;">
-                                    5000
-                                </p>
-                                <p class="font-weight-light text-white openSans mb-0 line-height-100" style="font-size: 85px;">
-                                    РУБЛЕЙ
-                                </p>
-                                <a href="{{ route('catalog') }}" style="text-decoration: none;">
-                                <button class="btn py-0 px-4 bg-white font-size-22 font-weight-light mt-2" style="border-radius: 0%;">
-                                    перейти в каталог
-                                </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <img class="img-fluid w-75" src="{{ asset('images/main1img.jpg') }}" alt="">
-                            <div class="position-absolute" style="width: max-content; transform: rotate(90deg); top: 50%; right: -8%;">
-                                <p class="text-white font-size-20 openSans font-weight-light">получить бесплатную доставку</p>
-                            </div>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="font-weight-bold openSans mb-0 line-height-100" style="color: #323232; font-size: 85px;">
+                            Новогодние
+                        </p>
+                    </div>
+                    <div class="col-5"></div>
+                    <div class="col-7 pl-4">
+                        <p class="font-weight-bold openSans mb-0 line-height-100" style="color: #323232; font-size: 85px;">
+                            платья
+                        </p>
+                    </div>
+                    <div class="col-5"></div>
+                    <div class="col-7">
+                        <p class="font-weight-light openSans mb-0 line-height-100 mt-3" style="color: #323232; font-size: 37px;">
+                            оптом от 600 руб
+                        </p>
+                        <a href="{{ route('catalog') }}" style="text-decoration: none;">
+                            <button class="btn py-0 px-4 bg-transparent {{ $agent->isDesktop() ? 'font-size-22' : 'font-size-18'}} font-weight-light mt-lg-4 mt-2" style="border-radius: 0%; border: 2px solid #000000;">
+                                перейти в каталог
+                            </button>
+                        </a>
                     </div>
                 </div>
+            </div>
             @else
                 <div class="container mb-5">
-                    <div class="row justify-content-end">
-                        <div class="col-7 position-relative pr-4">
-                            <img class="img-fluid w-100" src="{{ asset('images/main1img.jpg') }}" alt="">
-                        </div>
-                    </div>
-                    <p class="font-size-28 text-white font-weight-bold openSans mb-0">
-                        ЗАКАЗ ОТ
+                    <p class="font-size-24 text-dark font-weight-bold openSans mb-0">
+                        Новогодние
                     </p>
-                    <p class="font-size-28 text-white font-weight-light openSans">
-                        5000 РУБЛЕЙ
+                    <p class="font-size-24 text-dark font-weight-bold openSans mb-0">
+                        платья
+                    </p>
+                    <p class="font-size-18 text-dark font-weight-light openSans">
+                        оптом от 600 руб
                     </p>
                     <a href="{{ route('catalog') }}" style="text-decoration: none;">
-                    <button class="btn py-0 px-4 bg-white font-size-18 font-weight-light mt-2" style="border-radius: 0%;">
-                        перейти в каталог
-                    </button>
+                        <button class="btn py-0 px-4 bg-transparent {{ $agent->isDesktop() ? 'font-size-22' : 'font-size-18'}} font-weight-light mt-lg-4 mt-2" style="border-radius: 0%; border: 2px solid #000000;">
+                            перейти в каталог
+                        </button>
                     </a>
                 </div>
             @endif
+        </div>
+        {{--<div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg1mob.jpg') : asset('images/mainbg1.jpg') }}); background-size: cover; background-position: center;">--}}
+            {{--@if($agent->isDesktop())--}}
+                {{--<div class="container">--}}
+                    {{--<div class="row">--}}
+                        {{--<div class="col-7 d-flex align-items-center">--}}
+                            {{--<div>--}}
+                                {{--<p class="font-weight-bold text-white openSans mb-0 line-height-100" style="font-size: 85px;">--}}
+                                    {{--ЗАКАЗ--}}
+                                {{--</p>--}}
+                                {{--<p class="font-weight-bold text-white openSans mb-0 line-height-100" style="font-size: 85px;">--}}
+                                    {{--ОТ--}}
+                                {{--</p>--}}
+                                {{--<p class="font-weight-light text-white openSans mb-0 line-height-100" style="font-size: 85px;">--}}
+                                    {{--5000--}}
+                                {{--</p>--}}
+                                {{--<p class="font-weight-light text-white openSans mb-0 line-height-100" style="font-size: 85px;">--}}
+                                    {{--РУБЛЕЙ--}}
+                                {{--</p>--}}
+                                {{--<a href="{{ route('catalog') }}" style="text-decoration: none;">--}}
+                                {{--<button class="btn py-0 px-4 bg-white font-size-22 font-weight-light mt-2" style="border-radius: 0%;">--}}
+                                    {{--перейти в каталог--}}
+                                {{--</button>--}}
+                                {{--</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-5">--}}
+                            {{--<img class="img-fluid w-75" src="{{ asset('images/main1img.jpg') }}" alt="">--}}
+                            {{--<div class="position-absolute" style="width: max-content; transform: rotate(90deg); top: 50%; right: -8%;">--}}
+                                {{--<p class="text-white font-size-20 openSans font-weight-light">получить бесплатную доставку</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--@else--}}
+                {{--<div class="container mb-5">--}}
+                    {{--<div class="row justify-content-end">--}}
+                        {{--<div class="col-7 position-relative pr-4">--}}
+                            {{--<img class="img-fluid w-100" src="{{ asset('images/main1img.jpg') }}" alt="">--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<p class="font-size-28 text-white font-weight-bold openSans mb-0">--}}
+                        {{--ЗАКАЗ ОТ--}}
+                    {{--</p>--}}
+                    {{--<p class="font-size-28 text-white font-weight-light openSans">--}}
+                        {{--5000 РУБЛЕЙ--}}
+                    {{--</p>--}}
+                    {{--<a href="{{ route('catalog') }}" style="text-decoration: none;">--}}
+                    {{--<button class="btn py-0 px-4 bg-white font-size-18 font-weight-light mt-2" style="border-radius: 0%;">--}}
+                        {{--перейти в каталог--}}
+                    {{--</button>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--@endif--}}
+        {{--</div>--}}
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg6mob.jpg') : asset('images/mainbg6.jpg') }}); background-size: cover; background-position: center;">
+            <div class="container">
+                <div class="row" style="height: {{ $agent->isMobile() ? '60vh' : '88vh' }}">
+                    <div class="col-12 d-flex align-items-center justify-content-center text-center mb-lg-0 mb-5">
+                        <div>
+                            <p class="font-weight-bold text-white openSans mb-lg-1 mb-0 line-height-100" style="font-size: {{ $agent->isDesktop() ? '68px' : '26px'}};">
+                                Молодежная одежда
+                            </p>
+                            <p class="font-weight-light text-white openSans mb-lg-1 mb-0 line-height-100" style="font-size: {{ $agent->isDesktop() ? '37px' : '17px'}};">
+                                оптом от 300 руб
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="{{ route('catalog') }}" style="text-decoration: none;">
+                        <button class="btn py-0 px-4 bg-transparent {{ $agent->isDesktop() ? 'font-size-22' : 'font-size-18'}} font-weight-light mt-lg-4 mt-2" style="border-radius: 0%; border: 2px solid #000000;">
+                            перейти в каталог
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg2mob.jpg') : asset('images/mainbg2.jpg') }}); background-size: cover; background-position: center;">
             <div class="container">
@@ -70,19 +141,19 @@
                                 поставщик
                             </p>
                             <a href="{{ route('catalog') }}" style="text-decoration: none;">
-                            <button class="btn py-0 px-4 bg-transparent {{ $agent->isDesktop() ? 'font-size-22' : 'font-size-18'}} font-weight-light mt-lg-4 mt-2" style="border-radius: 0%; border: 2px solid #000000;">
-                                перейти в каталог
-                            </button>
+                                <button class="btn py-0 px-4 bg-transparent {{ $agent->isDesktop() ? 'font-size-22' : 'font-size-18'}} font-weight-light mt-lg-4 mt-2" style="border-radius: 0%; border: 2px solid #000000;">
+                                    перейти в каталог
+                                </button>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg3mob.jpg') : asset('images/mainbg3.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg7mob.jpg') : asset('images/mainbg7.jpg') }}); background-size: cover; background-position: center;">
             <div class="container">
                 <div class="row">
-                    <div class="col-6 d-lg-block d-none"></div>
+                    <div class="col-2 d-lg-block d-none"></div>
                     <div class="col-lg-6 col-12 d-flex align-items-center mb-lg-0 mb-5">
                         <div>
                             <p class="font-weight-bold text-dark openSans mb-1 line-height-100" style="font-size: {{ $agent->isDesktop() ? '43px' : '24px'}};">
@@ -245,8 +316,8 @@
             margin: 10,
             loop: true,
             dots: false,
-            touchDrag: false,
-            mouseDrag: false,
+            // touchDrag: false,
+            // mouseDrag: false,
             lazyLoad: true,
             autoplay:true,
             autoplayTimeout:5000,

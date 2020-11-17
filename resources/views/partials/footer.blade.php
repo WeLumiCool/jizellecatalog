@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-5" style="background-color: #282828;">
+    <div class="container-fluid position-relative py-5" style="background-color: #282828;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-12">
@@ -96,6 +96,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="d-flex position-absolute" style="bottom:5%; left: 3%;">
+            <p class="text-secondary openSans">v - 3.15</p>
         </div>
     </div>
 </section>
