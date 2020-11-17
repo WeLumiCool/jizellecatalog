@@ -10,14 +10,14 @@
     <div class="container pt-5 mt-5">
         <div class="row">
             <div class="col-lg-5 col-12">
-                <div class="row">
-                    <div class="col-3 position-relative slide px-0">
+                <div class="row position-relative">
+                    <div class="col-3 position-relative slide pl-1 pr-2">
                         @foreach(json_decode($product->image) as $image)
                             @if($loop->index == 3)
                                 @break
                             @endif
                             <a href="#{{$loop->index}}">
-                            <img class="img-fluid border mb-2" style="height: 32%;" src="{{ asset('storage/'.$image) }}" alt="">
+                            <img class="w-100 border mb-2" src="{{ asset('storage/'.$image) }}" alt="">
                             </a>
 
                         @endforeach
@@ -344,13 +344,12 @@
             }
         })
     </script>
-        <script>
-            $(document).ready(function () {
-                var htemp = $('.main-img').height();
-                console.log(htemp);
-                $('.slide').height(htemp);
-            })
-        </script>
+        {{--<script>--}}
+            {{--$(document).ready(function () {--}}
+                {{--var htemp = $('.main-img').height();--}}
+                {{--console.log(htemp);--}}
+                {{--$('.slide').height(htemp);--}}
+            {{--})--}}{{--</script>--}}
         <script>
             var stock = {{ isset($product->stock) ? $product->stock : 0 }};
             var closed_count = 1000 - {{ isset($product->closed) ? $product->stock : 0 }};
