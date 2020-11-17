@@ -307,7 +307,7 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <p class="font-size-14 font-weight-normal mb-0">
+                            <p class="text-dark font-size-14 font-weight-normal mb-0">
                                 Размеры:
                             </p>
                             <div class="d-flex">
