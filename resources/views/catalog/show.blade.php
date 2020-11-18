@@ -88,16 +88,16 @@
                         <div class="col-7 d-flex align-items-center">
                             <div class="position-relative">
                             <p class="font-size-20 mb-0 mobile-selector">Весь каталог</p>
-                            <div class="form-group position-absolute" style="top:0%; left:0%; opacity: 0;">
-                                <select name="" id="" class="form-control category-picker">
-                                    <option data-value="0" value="all">Все категории</option>
-                                    @foreach($categories as $category)
-                                        @if(count($category->products))
-                                            <option data-value="1" value="{{$category->id}}" {{ $id == $category->id ? 'selected' : ''}}>{{ $category->title }}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
+                            {{--<div class="form-group position-absolute" style="top:0%; left:0%; opacity: 0;">--}}
+                                {{--<select name="" id="" class="form-control category-picker">--}}
+                                    {{--<option data-value="0" value="all">Все категории</option>--}}
+                                    {{--@foreach($categories as $category)--}}
+                                        {{--@if(count($category->products))--}}
+                                            {{--<option data-value="1" value="{{$category->id}}" {{ $id == $category->id ? 'selected' : ''}}>{{ $category->title }}</option>--}}
+                                        {{--@endif--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
                             </div>
                         </div>
                         <div class="col-2 pr-1 d-flex align-items-center">
@@ -305,6 +305,15 @@
             var prices = $('.price-picker').val();
             var types = $('.type-picker').val();
             console.log(params, colors, prices);
+            fetchProductions(params, colors, prices, types);
+        });
+
+        $('.mobile-selector').click(function () {
+            params = [];
+            params.page = 1;
+            var colors = $('.color-value').val();
+            var prices = $('.price-picker').val();
+            var types = $('.type-picker').val();
             fetchProductions(params, colors, prices, types);
         });
 

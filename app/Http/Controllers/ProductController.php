@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class ProductController extends Controller
 {
@@ -15,19 +16,35 @@ class ProductController extends Controller
         $id = $request->id;
 
         Session::put('category', $id);
+        Session::put('refresh', 1);
 
-        return back();
+        return redirect()->to(URL::previous());
     }
 
     public function index (Request $request)
     {
-        $id = $request->category;
-        $type = $request->type;
+//        dd(Session::get('refresh'));
+        if (Session::has('refresh') && Session::get('refresh') == 1)
+        {
+            $id = null;
+            $type = null;
+            Session::put('refresh',0);
+            return redirect()->route('catalog');
+
+        }
+        else
+        {
+            $id = $request->category;
+            $type = $request->type;
+        }
+
         $cat_id = Session::has('category') ? Session::get('category') : 15;
         $categories = Category::where('parent_id', $cat_id)->get();
 
         return view('catalog.show', ['categories' => $categories, 'id' => $id, 'id2' => $type, 'cat_id' => $cat_id]);
     }
+
+
 
     public function filter(Request $request)
     {

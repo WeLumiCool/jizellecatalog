@@ -98,7 +98,7 @@
             </div>
         </div>
         <div class="d-flex position-absolute" style="bottom:5%; left: 3%;">
-            <p class="text-secondary openSans">v - 3.15</p>
+            <p class="text-secondary openSans">v - 3.17</p>
         </div>
     </div>
 </section>
