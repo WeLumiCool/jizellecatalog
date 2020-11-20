@@ -177,22 +177,27 @@
 
 
     <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="col-12 border-top border-bottom">
-                <div class="row justify-content-center">
-                    @foreach(\App\Category::where('parent_id', null)->get() as $category)
-                        <a href="{{ route('change_cat',['id' => $category->id]) }}" style="text-decoration: none;">
-                            <p class="px-4 mb-0 font-size-18 font-weight-normal text-uppercase py-2 main-category {{ \Illuminate\Support\Facades\Session::has('category') && \Illuminate\Support\Facades\Session::get('category') == $category->id ? 'active' : '' }}{{ \Illuminate\Support\Facades\Session::has('category') ? '' : $loop->index == 1 ? 'active' : ''}}">
-                                {{ $category->title }}
-                            </p>
-                        </a>
-                    @endforeach
+        <div class="container">
+        <div class="row justify-content-center">
+                        @foreach(\App\Category::where('parent_id', null)->get() as $category)
+                        <div class="col-lg-5 col-6">
+                            <a href="{{ route('change_cat',['id' => $category->id]) }}" style="text-decoration: none;">
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="{{ asset('storage/'.$category->image) }}" alt="">
+                                    <div class="position-absolute w-100" style="bottom: 5%; left: 0%; background: rgba(218, 153, 102, 0.76);">
+                                        <p class="text-center mb-0 {{ $agent->isDesktop() ? 'font-size-18' : 'font-size-10'}} font-weight-bold text-white text-uppercase py-2">
+                                            {{ $category->title }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
                 </div>
             </div>
-        </div>
     </div>
     <div class="container bg-white py-4 my-lg-5 my-4">
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach(\App\Type::all() as $type)
                 @if(count($type->products))
                 <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4">
@@ -213,27 +218,27 @@
     </div>
 
     <div class="container py-5">
-        <div class="owl-carousel owl-second">
+        {{--<div class="owl-carousel owl-second">--}}
             <?php
                 $id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
 //                dd($id);
-            $circle = count(\App\Category::where('parent_id', $id)->get()) / 8;
+//            $circle = count(\App\Category::where('parent_id', $id)->get()) / 8;
 //            dd($circle);
-            if (count(\App\Category::where('parent_id', $id)->get()) % 8 > 0)
-            {
-                $circle = floor($circle) + 1;
-            }
-            $kol =0;
+//            if (count(\App\Category::where('parent_id', $id)->get()) % 8 > 0)
+//            {
+//                $circle = floor($circle) + 1;
+//            }
+//            $kol =0;
             ?>
-            @for($i = 0; $i < intval($circle); $i++)
-                <div class="item">
+            {{--@for($i = 0; $i < intval($circle); $i++)--}}
+                {{--<div class="item">--}}
                     <div class="row">
                         @foreach(\App\Category::where('parent_id', $id)->get() as $category)
                             @if(isset($category->products))
-                            @if($loop->index == (($i + 1) * 8))
-                                @break
-                            @else
-                                @if($loop->index >= 8 * $i)
+                            {{--@if($loop->index == (($i + 1) * 8))--}}
+                                {{--@break--}}
+                            {{--@else--}}
+{{--                                @if($loop->index >= 8 * $i)--}}
                                     <div class="col-lg-3 col-6  mb-3 jzl-block">
                                         <a href="{{ route('catalog', ['category' => $category->id] ) }}" style="text-decoration: none;">
                                         <img class="img-fluid" src="{{ asset('storage/'.$category->image) }}" alt="">
@@ -243,15 +248,15 @@
                                         </p>
                                         </a>
                                     </div>
-                                @endif
-                            @endif
+                                {{--@endif--}}
+                            {{--@endif--}}
                             @endif
                         @endforeach
                     </div>
                 </div>
-            @endfor
-        </div>
-    </div>
+            {{--@endfor--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="container py-5">
         <h3 class="font-weight-normal text-center">
             Отзывы
