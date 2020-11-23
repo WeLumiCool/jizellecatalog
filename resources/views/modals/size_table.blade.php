@@ -5,14 +5,14 @@
             <button type="button" class="close position-absolute" style="right:5%; top:5%; z-index:9999;" data-dismiss="modal" aria-label="Close">
                 <img src="{{ asset('images/close.svg') }}" alt="">
             </button>
-            <div class="modal-body">
+            <div class="modal-body mt-4">
             <div class="row p-4">
                 <div class="col-12">
                     <img class="img-fluid" src="{{ asset('images/table-lg1.jpg') }}" alt="">
                 </div>
-                {{--<div class="col-12 mt-5">--}}
-                    {{--<img class="img-fluid" src="{{ asset('images/table-lg2.jpg') }}" alt="">--}}
-                {{--</div>--}}
+                <div class="col-12 mt-5">
+                    <img class="img-fluid" src="{{ asset('images/table-lg2.jpg') }}" alt="">
+                </div>
             </div>
                 <div class="p-4">
                     <p class="font-size-14 line-height-120 mb-1">Модели полноразмерные соответствуют российской
@@ -52,10 +52,10 @@
                         </div>
                         <div class="col-8 px-0" style="overflow-x: auto; overflow-y: hidden">
                             <div class="d-flex py-3 align-items-center" style="width:max-content; height: 77px;">
-                                {{--<div class="text-center" style="width: 80px;">40</div>--}}
-                                {{--<div class="text-center" style="width: 80px;">42</div>--}}
-                                {{--<div class="text-center" style="width: 80px;">44</div>--}}
-                                {{--<div class="text-center" style="width: 80px;">46</div>--}}
+                                <div class="text-center" style="width: 80px;">40</div>
+                                <div class="text-center" style="width: 80px;">42</div>
+                                <div class="text-center" style="width: 80px;">44</div>
+                                <div class="text-center" style="width: 80px;">46</div>
                                 <div class="text-center" style="width: 80px;">48</div>
                                 <div class="text-center" style="width: 80px;">50</div>
                                 <div class="text-center" style="width: 80px;">52</div>
@@ -66,10 +66,10 @@
                                 <div class="text-center" style="width: 80px;">62</div>
                             </div>
                             <div class="d-flex py-3" style="background-color: #EEEEEE; width: max-content; height: 77px;">
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">74-80</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">82-85</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">86-89</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">90-93</div>--}}
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">74-80</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">82-85</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">86-89</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">90-93</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">94-97</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">98-101</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">102-105</div>
@@ -80,10 +80,10 @@
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">124-127</div>
                             </div>
                             <div class="d-flex py-3" style="width: max-content; height: 77px;">
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">60-65</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">66-69</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">70-73</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">74-77</div>--}}
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">60-65</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">66-69</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">70-73</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">74-77</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">78-81</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">82-85</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">86-89</div>
@@ -94,10 +94,10 @@
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">106-109</div>
                             </div>
                             <div class="d-flex py-3" style="background-color: #EEEEEE; width: max-content; height: 77px;">
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">86-89</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">90-93</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">94-97</div>--}}
-                                {{--<div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">98-101</div>--}}
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">86-89</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">90-93</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">94-97</div>
+                                <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">98-101</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">102-105</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">106-109</div>
                                 <div class="text-center d-flex align-items-center justify-content-center" style="width: 80px;">110-114</div>

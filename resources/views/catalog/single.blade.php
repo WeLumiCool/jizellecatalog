@@ -54,7 +54,7 @@
                             {{ $product->price_opt }} p.
                         </p>
                         <p class="font-size-14 font-weight-light openSans text-dark mb-0">
-                            (от 6 товаров на 1 размер)
+                            (от 4-6 товаров в 1 линейке)
                         </p>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -69,6 +69,9 @@
                         </p>
                     </div>
                 </div>
+                <p class="mb-0 menu-point openSans font-size-14 font-weight-bold my-lg-0 my-2 text-dark" style="cursor: pointer;" data-toggle="modal" data-target="#table" >
+                    Таблица размеров
+                </p>
                 <div class="pt-4">
                     <?php
                         if (isset($bask))
