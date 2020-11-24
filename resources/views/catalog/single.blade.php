@@ -286,7 +286,7 @@
             </div>
             @foreach($prods as $prod)
             <div class="col-lg-3 col-6 mt-lg-0 mt-4">
-                <a href="{{ route('product/show', $product->id) }}" style="text-decoration: none;">
+                <a href="{{ route('product/show', $prod->id) }}" style="text-decoration: none;">
                 <div class="shadow-sm h-100">
                     <img class="w-100 mb-2" src="{{ asset('storage/'.json_decode($prod->image)[0]) }}" alt="">
                     <div class="p-3">
