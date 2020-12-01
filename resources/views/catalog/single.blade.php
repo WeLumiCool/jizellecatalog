@@ -277,7 +277,7 @@
             </div>
         </div>
         <?php
-            $prods = \App\Product::where('category_id', $product->category_id)->where('id', "!=" ,$product->id)->get()->take(4);
+            $prods = \App\Product::where('category_id', $product->category_id)->where('id', "!=" ,$product->id)->where('active', 0)->get()->take(4);
         ?>
         @if(count($prods))
         <div class="row mt-5">

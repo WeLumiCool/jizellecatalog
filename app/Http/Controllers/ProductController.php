@@ -65,6 +65,7 @@ class ProductController extends Controller
         }
 //        dd($country);
         $products = $products->unique('id');
+        $products = $products->where('active', 0);
 //        if ($country == null) {
 //            $announces = $announces->all();
 ////            $products = $products->where('type', $type);
