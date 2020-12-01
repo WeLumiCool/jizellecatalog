@@ -192,7 +192,7 @@
                                 </div>
                             </a>
                         </div>
-                        @endforeach
+                        @endforeach`
                 </div>
             </div>
     </div>
@@ -203,7 +203,7 @@
                 <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4">
                     <a href="{{ route('catalog',['type' => $type->id]) }}" style="text-decoration: none;">
                     <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('storage/'.$type->image) }}" alt="">
+                        <img class="w-100" src="{{ asset('storage/'.$type->image) }}" alt="">
                         <div class="position-absolute py-1 px-2" style="bottom:10%; width: 90%; background-color: rgba(218, 153, 102, 0.76);">
                             <span class="text-white openSans  {{ $agent->isDesktop() ? 'font-size-12' : 'font-size-8'}}">{{ $type->title }}</span>
                         </div>
