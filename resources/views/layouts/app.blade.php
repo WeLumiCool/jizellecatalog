@@ -172,12 +172,12 @@
 {{--<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>--}}
     {{--<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>--}}
 {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--}}
-{{--<script>--}}
-    {{--(function(w,d,u){--}}
-        {{--var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);--}}
-        {{--var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);--}}
-    {{--})(window,document,'https://cdn-ru.bitrix24.ru/b14654324/crm/site_button/loader_1_obvid9.js');--}}
-{{--</script>--}}
+<script>
+    (function(w,d,u){
+        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn-ru.bitrix24.ru/b14654324/crm/site_button/loader_1_obvid9.js');
+</script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173937125-2"></script>
