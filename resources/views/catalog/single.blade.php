@@ -242,9 +242,9 @@
         <div class="row my-5">
             <div class="col-12">
                 <div class="d-flex">
-                <p class="font-size-18 px-3 font-weight-normal text-dark openSans mb-1" style="background-color: #F7F7F7; border-top: 1px solid #ddaf43;">
+                <h2 class="font-size-18 px-3 font-weight-normal text-dark openSans mb-1" style="background-color: #F7F7F7; border-top: 1px solid #ddaf43;">
                     Характеристики
-                </p>
+                </h2>
                 </div>
                 <div class="p-4" style="background-color: #F7F7F7;">
                     <p class="font-size-16 font-weight-normal text-dark mb-0 openSans">
@@ -267,11 +267,11 @@
                             {{ $size->size }}{{$loop->last ? '' : ','}}
                         @endforeach
                     </p>
-                    <p class="font-size-16 font-weight-normal text-dark mb-0 openSans">
+                    <h2 class="font-size-16 font-weight-normal text-dark mb-0 openSans">
                         Описание:
-                    </p>
-                    <div class="text-dark openSans line-height-100 prod-desc">
-                        <h2 class="font-size-16 font-weight-light">{!! $product->description !!}</h2>
+                    </h2>
+                    <div class="font-size-16 font-weight-light text-dark openSans line-height-100 prod-desc">
+                        {!! $product->description !!}
                     </div>
                 </div>
             </div>
