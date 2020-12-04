@@ -35,9 +35,9 @@
                 </div>
             </div>
             <div class="col-lg-7 col-12 mt-lg-0 mt-4">
-                <h4 class="font-size-20 font-weight-bold openSans" style="color: #333333;">
+                <h1 class="font-size-20 font-weight-bold openSans" style="color: #333333;">
                     {{ $product->title }}
-                </h4>
+                </h1>
                 {{--<p class="font-size-14 text-dark font-weight-bold mt-4 mb-1">--}}
                     {{--Ткань: <span class="font-weight-light">{{$product->cloth}}</span>--}}
                 {{--</p>--}}
@@ -270,8 +270,8 @@
                     <p class="font-size-16 font-weight-normal text-dark mb-0 openSans">
                         Описание:
                     </p>
-                    <div class="font-size-16 font-weight-light text-dark openSans line-height-100 prod-desc">
-                        {!! $product->description !!}
+                    <div class="text-dark openSans line-height-100 prod-desc">
+                        <h2 class="font-size-16 font-weight-light">{!! $product->description !!}</h2>
                     </div>
                 </div>
             </div>

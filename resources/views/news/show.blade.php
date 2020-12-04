@@ -35,9 +35,9 @@
         </div>
     </div>
 <div class="container py-5">
-    <h4 class="font-size-26 font-weight-light openSans text-center text-dark">
+    <h1 class="font-size-26 font-weight-light openSans text-center text-dark">
         {{$new->title}}
-    </h4>
+    </h1>
     <div class="text-center">
     <p class="mt-3 openSans font-size-12"
        style="color: #b8b8b8;">{{ \Jenssegers\Date\Date::parse($new->created_at)->format('j F Y г.')}}</p>

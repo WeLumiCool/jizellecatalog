@@ -37,7 +37,7 @@
             @if(!$agent->isMobile())
             <div class="col-lg-12 col-12 d-flex justify-content-lg-start justify-content-end py-4 align-items-center" style="background-color: #F7F6FC;">
                 <div class="col-3 mr-5 pl-0">
-                    <span class="font-size-20">Каталог</span>
+                    <h1 class="font-size-20">Каталог</h1>
                 </div>
                 {{--<div class="mr-5 d-flex align-items-center">--}}
                 {{--<span class="text-secondary font-size-12 mr-2">Размер</span>--}}
@@ -87,7 +87,7 @@
                     <div class="row justify-content-between">
                         <div class="col-7 d-flex align-items-center">
                             <div class="position-relative">
-                            <p class="font-size-20 mb-0 mobile-selector">Весь каталог</p>
+                            <h1 class="font-size-20 mb-0 mobile-selector">Весь каталог</h1>
                             {{--<div class="form-group position-absolute" style="top:0%; left:0%; opacity: 0;">--}}
                                 {{--<select name="" id="" class="form-control category-picker">--}}
                                     {{--<option data-value="0" value="all">Все категории</option>--}}
@@ -165,7 +165,7 @@
                     <p class="font-size-18 btn-link font-weight-light mb-1 text-dark switcher" type="button" data-type="switch" data-id="all">Весь каталог</p>
                     @foreach($categories as $category)
                         @if(count($category->products))
-                            <p class="font-size-18 btn-link font-weight-light text-dark switcher {{isset($id) && $id == $category->id ? 'active' : ''}}" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</p>
+                            <h2 class="font-size-18 btn-link font-weight-light text-dark switcher {{isset($id) && $id == $category->id ? 'active' : ''}}" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</h2>
                         @endif
                     @endforeach
                 </div>
