@@ -77,9 +77,17 @@
                         if (isset($bask))
                             {
                                 $count = 0;
-                                foreach ($bask['content'] as $item) {
-                                    $count = $count + $item['count'];
+//                                dd(is_array($bask['content']));
+//                                dd($bask['content']);
+                                if (is_array($bask['content'])){
+                                    foreach ($bask['content'] as $item) {
+                                        $count = $count + $item['count'];
+                                    }
                                 }
+                                else
+                                    {
+                                        $count = count($product->sizes) * $bask['content'];
+                                    }
                                 if ($count > $product->stock)
                                     {
                                         $stock = 0;
@@ -213,11 +221,13 @@
                                         <?php
                                         if (isset($bask))
                                         {
+                                            if (is_array($bask['content'])){
                                             foreach ($bask['content'] as $item) {
                                                 if ($size->size == $item['size'])
                                                     {
                                                         $sizer = $item['count'];
                                                     }
+                                            }
                                             }
                                         }
                                         ?>
