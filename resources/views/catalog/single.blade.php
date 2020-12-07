@@ -556,7 +556,12 @@
                     alert('Количество не может быть равно 0');
                 }
                 else {
-                parameters = $('.counter-opt').val();
+                    if (kind == 1){
+                        parameters = $('.counter-opt').val();
+                    }
+                    else {
+                        document.querySelectorAll('.counter').forEach(element => parameters.push(element.value));
+                    }
 
                 $.ajax({
                     url: '{{ route('add_cart') }}',
