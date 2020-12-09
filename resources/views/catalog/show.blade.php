@@ -162,7 +162,7 @@
         <div class="row">
             <div class="col-lg-3 d-lg-block d-none">
                 <div class="" style="position: sticky; top:15%;">
-                    <p class="font-size-18 btn-link font-weight-light mb-1 text-dark switcher" type="button" data-type="switch" data-id="all">Весь каталог</p>
+                    <h2 class="font-size-18 btn-link font-weight-light mb-1 text-dark switcher" type="button" data-type="switch" data-id="all">Весь каталог</h2>
                     @foreach($categories as $category)
                         @if(count($category->products))
                             <h2 class="font-size-18 btn-link font-weight-light text-dark switcher {{isset($id) && $id == $category->id ? 'active' : ''}}" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</h2>
