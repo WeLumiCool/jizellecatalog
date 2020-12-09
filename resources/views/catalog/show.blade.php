@@ -256,11 +256,11 @@
             params.page = productionsPage;
         }
         @if(!$agent->isMobile())
-        $('p[data-type="switch"]').click(e => {
+        $('h2[data-type="switch"]').click(e => {
             let input = $(e.currentTarget);
             if(input.hasClass('active') == false)
             {
-                $('p[data-type="switch"]').removeClass('active');
+                $('h2[data-type="switch"]').removeClass('active');
                 input.addClass('active');
                 // params.page = 1;
                 // fetchProductions(params, input.data('value'));
