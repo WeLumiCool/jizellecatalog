@@ -54,18 +54,23 @@ class ProductController extends Controller
         $type = $request->type;
         $cat_id = $request->cat_id;
         $cats = Category::where('parent_id', $cat_id)->get();
-        if ($params) {
+        if ($params && $params != 'archive') {
             $cats = $cats->whereIn('id', $params);
         }
-
-
+        else
+        {
+            $products = Product::where('active', 1)->get();
+        }
+        if ($params != 'archive'){
         $products = collect();
         foreach ($cats as $cat) {
             $products = $products->merge($cat->products);
         }
+            $products = $products->unique('id');
+            $products = $products->where('active', 0);
+        }
 //        dd($country);
-        $products = $products->unique('id');
-        $products = $products->where('active', 0);
+
 //        if ($country == null) {
 //            $announces = $announces->all();
 ////            $products = $products->where('type', $type);

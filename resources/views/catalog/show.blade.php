@@ -168,6 +168,7 @@
                             <h2 class="font-size-18 btn-link font-weight-light text-dark switcher {{isset($id) && $id == $category->id ? 'active' : ''}}" type="button" data-type="switch" data-id="{{ $category->id }}">{{ $category->title }}</h2>
                         @endif
                     @endforeach
+                    <h2 class="font-size-18 btn-link font-weight-light mb-1 text-dark switcher" type="button" data-type="switch" data-id="archive">Архив</h2>
                 </div>
             </div>
             <div class="col-lg-9 col-12">

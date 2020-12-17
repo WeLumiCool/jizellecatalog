@@ -72,6 +72,7 @@
                 <p class="mb-0 menu-point openSans font-size-14 font-weight-bold my-lg-0 my-2 text-dark" style="cursor: pointer;" data-toggle="modal" data-target="#table" >
                     Таблица размеров
                 </p>
+                @if($product->active == 0)
                 <div class="pt-4">
                     <?php
                         if (isset($bask))
@@ -114,6 +115,7 @@
                         <p class="font-size-18 font-weight-bold openSans ml-3 mb-0" style="color: #4A8F14;"><span class="closed">{{ isset($closed) ? $closed : 1000 - $product->closed }}</span> ед. <span class="font-size-12 text-dark font-weight-light"> - доступно к заказу</span></p>
                     </div>
                 </div>
+
                 <div class="">
 
                     <div class="row my-4">
@@ -247,6 +249,18 @@
 
                     </div>
                 </div>
+                    @endif
+                @if($product->active == 1)
+                <div class="">
+                    <p class="font-size-18 font-weight-bold text-danger">Товар снят с продажи</p>
+                    <p class="font-size-14 font-weight-normal text-danger mb-0">
+                        Для дополнительной информации свяжитесь с отделом продаж:
+                    </p>
+                    <p class="font-size-14 font-weight-normal text-danger mb-0">
+                        <a href="tel:+74992868285">+74992868285</a>
+                    </p>
+                </div>
+                @endif
             </div>
         </div>
         <div class="row my-5">
