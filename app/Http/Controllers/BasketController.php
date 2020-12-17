@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Card;
 use App\Category;
 use App\Mail\send;
 use App\Product;
@@ -189,6 +190,14 @@ class BasketController extends Controller
         $city = $request->city;
         $products = Session::get('cart');
         $total = Session::get('total');
+        $card = new Card();
+        $card->name = $name;
+        $card->phone = $phone;
+        $card->city = $city;
+        $card->products = $products;
+        $card->total = $total;
+        $card->save();
+        
         Session::flush();
 
         Mail::to('catalog@jizelle.ru')->send(new send($name, $phone, $city, $products, $total));
