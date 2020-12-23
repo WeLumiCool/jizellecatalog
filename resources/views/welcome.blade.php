@@ -4,7 +4,7 @@
     $agent = new \Jenssegers\Agent\Agent();
     ?>
     <div class="container-fluid px-0 owl-carousel owl-main" style="min-height: {{ $agent->isMobile() ? '100vh' : '100vh' }};">
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg5mob.jpg') : asset('images/mainbg5.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '100vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg5mob.jpg') : asset('images/mainbg5.jpg') }}); background-size: cover; background-position: center;">
             @if($agent->isDesktop())
             <div class="container">
                 <div class="row">
@@ -105,7 +105,7 @@
                 {{--</div>--}}
             {{--@endif--}}
         {{--</div>--}}
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg6mob.jpg') : asset('images/mainbg6.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '100vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg6mob.jpg') : asset('images/mainbg6.jpg') }}); background-size: cover; background-position: center;">
             <div class="container">
                 <div class="row" style="height: {{ $agent->isMobile() ? '60vh' : '88vh' }}">
                     <div class="col-12 d-flex align-items-center justify-content-center text-center mb-lg-0 mb-5">
@@ -129,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg2mob.jpg') : asset('images/mainbg2.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '100vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg2mob.jpg') : asset('images/mainbg2.jpg') }}); background-size: cover; background-position: center;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-12 d-flex align-items-center mb-lg-0 mb-5">
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg7mob.jpg') : asset('images/mainbg7.jpg') }}); background-size: cover; background-position: center;">
+        <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '100vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg7mob.jpg') : asset('images/mainbg7.jpg') }}); background-size: cover; background-position: center;">
             <div class="container">
                 <div class="row">
                     <div class="col-2 d-lg-block d-none"></div>
