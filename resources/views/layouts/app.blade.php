@@ -38,7 +38,8 @@
     </div>
 </div>
 <?php
-    $agent = new \Jenssegers\Agent\Agent();
+    use Jenssegers\Agent\Agent;
+    $agent = new Agent();
 ?>
     <div class="position-relative" id="app">
         <div class="mobile-backdrop"></div>
@@ -361,51 +362,50 @@
             {{--}--}}
         {{--})--}}
     {{--</script>--}}
-<script>
-    $(document).ready(function() {
-        $(window).scroll(function() {
+    <script>
+        var check = 0;
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                console.log(check);
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop >= 50) {
+                    $('.menuse').removeClass('shadow-none');
+                    $('.menuse').addClass('solid-nav');
+                    $('.menuse').addClass('py-0');
+                    $('.menuse').removeClass('pt-3');
+                }
+                else if (scrollTop < 50 && $('.navbar-toggler').hasClass('collapsed') == true && check == 1) {
+                    $('.menuse').addClass('shadow-none');
+                    $('.menuse').removeClass('solid-nav');
+                    $('.menuse').removeClass('py-0');
+                    $('.menuse').addClass('pt-3');
+                }
+                else if (check == 0) {
+                    $('.menuse').addClass('shadow-none');
+                    $('.menuse').removeClass('solid-nav');
+                    $('.menuse').removeClass('py-0');
+                    $('.menuse').addClass('pt-3');
+                }
+            });
+        });
+
+        $(document).on('click', '.navbar-toggler', function (e) {
+            check = 1;
+
+            var original = window.location.origin + '/';
+            var btn = $(e.currentTarget);
             var scrollTop = $(window).scrollTop();
-            var agent = {{$agent->isMobile()}};
-            console.log(agent);
-            if (scrollTop >= 50) {
+            if (scrollTop < 50 && btn.hasClass('collapsed') == false) {
                 $('.menuse').removeClass('shadow-none');
                 $('.menuse').addClass('solid-nav');
-                $('.menuse').addClass('py-0');
                 $('.menuse').removeClass('pt-3');
-            }
-            else if(scrollTop < 50 && $('.navbar-toggler').hasClass('collapsed') == true)
-            {
-                $('.menuse').addClass('shadow-none');
+
+            } else if (scrollTop < 50 && btn.hasClass('collapsed') == true) {
                 $('.menuse').removeClass('solid-nav');
-                $('.menuse').removeClass('py-0');
-                $('.menuse').addClass('pt-3');
-            }
-            else
-            {
                 $('.menuse').addClass('shadow-none');
-                $('.menuse').removeClass('solid-nav');
-                $('.menuse').removeClass('py-0');
                 $('.menuse').addClass('pt-3');
             }
         });
-    });
-
-    $(document).on('click', '.navbar-toggler', function (e) {
-
-        var original = window.location.origin + '/';
-        var btn = $(e.currentTarget);
-        var scrollTop = $(window).scrollTop();
-        if (scrollTop < 50 && btn.hasClass('collapsed') == false) {
-            $('.menuse').removeClass('shadow-none');
-            $('.menuse').addClass('solid-nav');
-            $('.menuse').removeClass('pt-3');
-
-        } else if (scrollTop < 50 && btn.hasClass('collapsed') == true) {
-            $('.menuse').removeClass('solid-nav');
-            $('.menuse').addClass('shadow-none');
-            $('.menuse').addClass('pt-3');
-        }
-    });
 
 </script>
 </body>
