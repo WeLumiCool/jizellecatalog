@@ -6,7 +6,7 @@ $agent = new Agent();
 <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top menuse shadow-none pt-3">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="img-fluid" src="{{ asset('images/logo.svg') }}" alt="">
+            <img style="max-width: 115px;" src="{{ asset('images/logo.png') }}" alt="">
         </a>
         @if($agent->isMobile())
             <a href="{{ route('basket') }}">

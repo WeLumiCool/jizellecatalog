@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-12">
-                    <img class="img-fluid" src="{{ asset('images/logo-white.svg') }}" alt="">
+                    <img style="max-width: 115px;" src="{{ asset('images/logo-white.png') }}" alt="">
                 </div>
                 <div class="col-lg-4 col-12 mt-lg-0 mt-3">
                     <p class="font-weight-bold font-size-20 text-white">
