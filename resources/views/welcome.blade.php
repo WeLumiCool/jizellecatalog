@@ -196,11 +196,11 @@
                 </div>
             </div>
     </div>
-    <div class="container bg-white py-4 my-lg-5 my-4">
+    <div class="container bg-white py-4 my-lg-5 my-0">
         <div class="row justify-content-center">
             @foreach(\App\Type::all() as $type)
                 @if(count($type->products))
-                <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4">
+                <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4 mb-4">
                     <a href="{{ route('catalog',['type' => $type->id]) }}" style="text-decoration: none;">
                     <div class="position-relative">
                         <img class="w-100" src="{{ asset('storage/'.$type->image) }}" alt="">
@@ -217,7 +217,7 @@
         </div>
     </div>
 
-    <div class="container py-5">
+    <div class="container py-lg-5 py-0">
         {{--<div class="owl-carousel owl-second">--}}
             <?php
                 $id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
@@ -257,7 +257,7 @@
             {{--@endfor--}}
         {{--</div>--}}
     {{--</div>--}}
-    <div class="container py-5">
+    <div class="container py-lg-5 py-0">
         <h3 class="font-weight-normal text-center">
             Отзывы
         </h3>
@@ -372,7 +372,7 @@
             lazyLoad: true,
             responsive: {
                 0: {
-                    items: 1.5
+                    items: 1.8
                 },
                 700: {
                     items: 3.5
