@@ -365,13 +365,15 @@
     $(document).ready(function() {
         $(window).scroll(function() {
             var scrollTop = $(window).scrollTop();
+            var agent = {{$agent->isMobile()}};
+            console.log(agent);
             if (scrollTop >= 50) {
                 $('.menuse').removeClass('shadow-none');
                 $('.menuse').addClass('solid-nav');
                 $('.menuse').addClass('py-0');
                 $('.menuse').removeClass('pt-3');
             }
-            else if(scrollTop < 50 && {{$agent->isMobile()}} == true && $('.navbar-toggler').hasClass('collapsed') == true)
+            else if(scrollTop < 50 && $('.navbar-toggler').hasClass('collapsed') == true)
             {
                 $('.menuse').addClass('shadow-none');
                 $('.menuse').removeClass('solid-nav');
