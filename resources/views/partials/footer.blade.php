@@ -1,5 +1,5 @@
 <section id="footer">
-    <div class="container my-5 pt-5">
+    <div class="container my-5 pt-lg-5 pt-0">
         <div class="row">
             <div class="col-lg-4 col-12">
                 <p class="small mb-3 ml-2">Присоединяйтесь к Jizelle в <br> социальных сетях</p>
