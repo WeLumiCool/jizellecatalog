@@ -3,7 +3,7 @@
     <?php
     $agent = new \Jenssegers\Agent\Agent();
     ?>
-    <div class="container-fluid px-0 owl-carousel owl-main" style="min-height: {{ $agent->isMobile() ? '80vh' : '100vh' }};">
+    <div class="container-fluid px-0 owl-carousel owl-main" style="min-height: {{ $agent->isMobile() ? '100vh' : '100vh' }};">
         <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '80vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg5mob.jpg') : asset('images/mainbg5.jpg') }}); background-size: cover; background-position: center;">
             @if($agent->isDesktop())
             <div class="container">
