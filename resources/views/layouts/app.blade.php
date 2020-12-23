@@ -371,7 +371,7 @@
                 $('.menuse').addClass('py-0');
                 $('.menuse').removeClass('pt-3');
             }
-            else
+            else if(scrollTop < $('.navbar-toggler').hasClass('collapsed') == false)
             {
                 $('.menuse').addClass('shadow-none');
                 $('.menuse').removeClass('solid-nav');
