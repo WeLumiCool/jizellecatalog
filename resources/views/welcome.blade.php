@@ -372,7 +372,7 @@
             lazyLoad: true,
             responsive: {
                 0: {
-                    items: 2
+                    items: 1.2
                 },
                 700: {
                     items: 3.5
