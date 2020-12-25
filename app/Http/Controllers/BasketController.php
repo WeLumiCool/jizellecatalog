@@ -200,8 +200,9 @@ class BasketController extends Controller
         
         Session::flush();
 
+
         Mail::to('catalog@jizelle.ru')->send(new send($name, $phone, $city, $products, $total));
 
-        return view('basket.success');
+        return view('basket.success',['name' => $name, 'phone' => $phone, 'city' => $city, 'total' => $total]);
     }
 }

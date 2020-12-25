@@ -217,7 +217,7 @@
         </div>
     </div>
 
-    <div class="container py-lg-5 py-0">
+    <div class="container py-lg-5 py-0" id="list">
         {{--<div class="owl-carousel owl-second">--}}
             <?php
                 $id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
@@ -269,11 +269,11 @@
             @foreach(\App\Comment::all() as $comment)
                 <div class="item row justify-content-center">
                     <div class="col-lg-6 col-10 text-center">
-                        <p class="font-size-16 font-weight-light" style="color: #a6a6a6;">
+                        <p class="font-size-16 font-weight-light comment-size" id="comment-{{$comment->id}}" style="color: #a6a6a6;">
                             {{ $comment->comment }}
                         </p>
-
-                        <p class="font-size-22 font-weight-bold mb-0" style="color: #DA9966;">
+                        {{--<span class="more" data-id="{{$comment->id}}">Показать больше</span>--}}
+                        <p class="font-size-22 font-weight-bold mb-0 line-height-100" style="color: #DA9966;">
                             {{ $comment->name }}
                         </p>
                         <p class="font-size-12 font-weight-light" style="color: #a6a6a6;">
@@ -300,6 +300,15 @@
 @endsection
 
 @push('scripts')
+    <script>
+        $('.more').click(function (e) {
+            var btn = $(e.currentTarget);
+            var id = btn.data('id');
+            console.log(btn.data('id'));
+
+            $('#comment-' + id).addClass('comment-more');
+        })
+    </script>
     <script>
         $(document).ready(function () {
             $(window).scroll(function () {
@@ -380,4 +389,12 @@
             }
         })
     </script>
+    @if(\Illuminate\Support\Facades\Session::has('category'))
+    <script>
+        $(document).ready(function () {
+             var top = $('#list').offset().top - 100;
+             $('body,html').animate({scrollTop: top}, 200);
+        })
+    </script>
+    @endif
 @endpush
