@@ -14,9 +14,9 @@ class NewsController extends Controller
         return view('news.list', ['news' => $news]);
     }
 
-    public function show($id)
+    public function show(Request $request)
     {
-        $new = News::find($id);
+        $new = News::find($request->id);
 
         return view('news.show', ['new' => $new]);
     }

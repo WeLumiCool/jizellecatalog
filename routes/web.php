@@ -58,7 +58,7 @@ Route::post('/basket_save','BasketController@send')->name('basket_save');
 Route::get('/basket','BasketController@index')->name('basket');
 
 Route::get('/news','NewsController@index')->name('news');
-Route::get('/news/show/{id}','NewsController@show')->name('news/show');
+Route::get('/news/show','NewsController@show')->name('news/show');
 
 Route::get('/test', function () {
    return view('test');

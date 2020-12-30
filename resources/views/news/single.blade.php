@@ -1,4 +1,4 @@
-<a href="{{ route('news/show', $new->id) }}" style="text-decoration: none;">
+<a href="{{ route('news/show', ['id'=>$new->id,'заголовок'=>$new->title]) }}" style="text-decoration: none;">
     <div class="mb-4 jzl-block news-block">
         <div style="overflow: hidden;">
         <img class="w-100" style="transition: 1.5s" src="{{ asset('storage/'.$new->image) }}" alt="">
