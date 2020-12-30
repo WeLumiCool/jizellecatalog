@@ -4,7 +4,7 @@ $agent = new \Jenssegers\Agent\Agent();
 @if(count($products))
 @foreach($products as $product)
 <div class="col-lg-4 col-6 px-lg-4 px-1 mb-lg-5 mb-4">
-    <a href="{{ route('product/show', $product->id) }}" style="text-decoration: none;">
+    <a href="{{ route('product/show', ['product'=>$product->id,'название'=>$product->title]) }}" style="text-decoration: none;">
     <div class="bg-white position-relative h-100" style="box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.14);">
         @if(isset($product->type))
             <img class="position-absolute" src="{{ asset('storage/'.$product->type->icon) }}" style="top:3%; right: 3%; max-width: {{ $agent->isMobile() ? '30px' : '50px' }};">

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/catalog', 'ProductController@index')->name('catalog');
+Route::get('/catalog/', 'ProductController@index')->name('catalog');
 //Route::get('/catalog', function () {
 //    return view('catalog.show',[
 //        'categories' => \App\Category::all(),
@@ -50,7 +50,7 @@ Route::post('/search', 'ProductController@search')->name('search');
 Route::post('/wish_list','WishController@wish_list')->name('wish_list');
 Route::get('/wishes', 'WishController@wishes')->name('wishes');
 
-Route::get('product/show/{id}', 'ProductController@show')->name('product/show');
+Route::get('product/show', 'ProductController@show')->name('product/show');
 
 Route::post('/add_cart', 'BasketController@add')->name('add_cart');
 Route::post('/delete_cart', 'BasketController@delete')->name('delete_cart');

@@ -163,10 +163,10 @@ class ProductController extends Controller
         return view('location');
     }
 
-    public function show($id)
+    public function show(Request $request)
     {
 //            dd(Session::get('cart'));
-        $product = Product::find($id);
+        $product = Product::find($request->product);
         $check = 0;
         if (Session::has('cart')) {
             $carts = Session::get('cart');
