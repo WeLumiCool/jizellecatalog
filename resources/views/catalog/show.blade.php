@@ -4,12 +4,13 @@
     {{--//        $product = \App\Product::all()->first();--}}
     {{--//        dd($product->colors);--}}
     {{--//    ?>--}}
-    {{--{{ dd($cat_id) }}--}}
+{{--    @dd($id2)--}}
     <?php
     use Jenssegers\Agent\Agent;
 
     $agent = new Agent();
     ?>
+
     <div class="container main-block">
         {{--<div class="row mb-4 d-lg-block d-none">--}}
             {{--<div class="col-lg-3"></div>--}}
@@ -23,7 +24,7 @@
                 <div class="col-12 border-top border-bottom">
                     <div class="row justify-content-center">
                         @foreach(\App\Category::where('parent_id', null)->get() as $category)
-                            <a href="{{ route('change_cat',['id' => $category->id]) }}" style="text-decoration: none;">
+                            <a href="{{ route('change_cat',['id' => $category->id, 't' => 1]) }}" style="text-decoration: none;">
                                 <p class="px-4 mb-0 font-size-18 font-weight-normal text-uppercase py-2 main-category {{ \Illuminate\Support\Facades\Session::has('category') && \Illuminate\Support\Facades\Session::get('category') == $category->id ? 'active' : '' }}{{ \Illuminate\Support\Facades\Session::has('category') ? '' : $loop->index == 1 ? 'active' : ''}}">
                                     {{ $category->title }}
                                 </p>

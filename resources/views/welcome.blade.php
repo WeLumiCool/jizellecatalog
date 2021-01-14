@@ -201,7 +201,7 @@
             @foreach(\App\Type::all() as $type)
                 @if(count($type->products))
                 <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4 mb-4">
-                    <a href="{{ route('catalog',['тип'=>$type->id,'раздел'=>$type->title]) }}" style="text-decoration: none;">
+                    <a href="{{ route('catalog',['id'=>$type->id,'раздел'=>$type->title,'t'=>1]) }}" style="text-decoration: none;">
                     <div class="position-relative">
                         <img class="w-100" src="{{ asset('storage/'.$type->image) }}" alt="">
                         <div class="position-absolute py-1 px-2" style="bottom:10%; width: 90%; background-color: rgba(218, 153, 102, 0.76);">
@@ -240,7 +240,7 @@
                             {{--@else--}}
 {{--                                @if($loop->index >= 8 * $i)--}}
                                     <div class="col-lg-3 col-6  mb-3 jzl-block">
-                                        <a href="{{ route('catalog', ['категория'=>$category->id,'раздел'=>$category->title] ) }}" style="text-decoration: none;">
+                                        <a href="{{ route('catalog', ['cat'=>$category->id,'категория'=>$category->title,'t'=>1] ) }}" style="text-decoration: none;">
                                         <img class="img-fluid" src="{{ asset('storage/'.$category->image) }}" alt="">
 
                                         <p class="font-size-16 openSans mt-1 jzl-title font-weight-light">

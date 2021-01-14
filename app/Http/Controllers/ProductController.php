@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
@@ -18,24 +19,30 @@ class ProductController extends Controller
         Session::put('category', $id);
         Session::put('refresh', 1);
 
-        return redirect()->to(URL::previous());
+        if (isset($request->t))
+        {
+            return redirect()->route('catalog');
+        }
+        else
+        {
+            return redirect()->to(URL::previous());
+        }
     }
 
     public function index (Request $request)
     {
-//        dd(Session::get('refresh'));
-        if (Session::has('refresh') && Session::get('refresh') == 1)
+//        dd($request->all());
+        if (Session::has('refresh') && Session::get('refresh') == 1 && !isset($request->t))
         {
             $id = null;
             $type = null;
             Session::put('refresh',0);
             return redirect()->route('catalog');
-
         }
         else
         {
-            $id = $request->category;
-            $type = $request->type;
+            $id = $request->cat;
+            $type = $request->id;
         }
 
         $cat_id = Session::has('category') ? Session::get('category') : 15;
