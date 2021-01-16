@@ -60,6 +60,7 @@ class ProductController extends Controller
         $price = $request->price;
         $type = $request->type;
         $cat_id = $request->cat_id;
+
         $cats = Category::where('parent_id', $cat_id)->get();
         if ($params && $params != 'archive') {
             $cats = $cats->whereIn('id', $params);

@@ -2,6 +2,7 @@
 @section('content')
     <?php
     $agent = new \Jenssegers\Agent\Agent();
+    $id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
     ?>
     <div class="container-fluid px-0 owl-carousel owl-main" style="min-height: {{ $agent->isMobile() ? '100vh' : '100vh' }};">
         <div class="d-flex align-items-lg-center align-items-end item" style="height: {{ $agent->isMobile() ? '100vh' : '100vh' }}; background-image: url({{ $agent->isMobile() ? asset('images/mainbg5mob.jpg') : asset('images/mainbg5.jpg') }}); background-size: cover; background-position: center;">
@@ -200,6 +201,18 @@
         <div class="row justify-content-center">
             @foreach(\App\Type::all()->reverse() as $type)
                 @if(count($type->products))
+                    <?php
+                        $check = 0;
+                        foreach ($type->products as $product)
+                            {
+                                if($product->category->parent_id == $id)
+                                    {
+                                        $check = 1;
+                                        break;
+                                    }
+                            }
+                    ?>
+                @if($check == 1)
                 <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4 mb-4">
                     <a href="{{ route('catalog',['id'=>$type->id,'раздел'=>$type->title,'t'=>1]) }}" style="text-decoration: none;">
                     <div class="position-relative">
@@ -208,10 +221,10 @@
                             <span class="text-white openSans  {{ $agent->isDesktop() ? 'font-size-12' : 'font-size-8'}}">{{ $type->title }}</span>
                         </div>
                         <img class="position-absolute" src="{{ asset('storage/'.$type->icon) }}" style="top:3%; right: 3%; max-width: {{ $agent->isMobile() ? '30px' : '50px' }};">
-
                     </div>
                     </a>
                 </div>
+                    @endif
                 @endif
             @endforeach
         </div>
@@ -219,17 +232,7 @@
 
     <div class="container py-lg-5 py-0" id="list">
         {{--<div class="owl-carousel owl-second">--}}
-            <?php
-                $id = \Illuminate\Support\Facades\Session::has('category') ? \Illuminate\Support\Facades\Session::get('category') : 15;
-//                dd($id);
-//            $circle = count(\App\Category::where('parent_id', $id)->get()) / 8;
-//            dd($circle);
-//            if (count(\App\Category::where('parent_id', $id)->get()) % 8 > 0)
-//            {
-//                $circle = floor($circle) + 1;
-//            }
-//            $kol =0;
-            ?>
+
             {{--@for($i = 0; $i < intval($circle); $i++)--}}
                 {{--<div class="item">--}}
                     <div class="row">

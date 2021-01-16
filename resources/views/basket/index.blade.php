@@ -19,7 +19,7 @@
         @if($products != null)
 
         @foreach($products as $key => $item)
-{{--            @dd($item)--}}
+            {{--@dd($item)--}}
                 {{--@dd(\App\Color::find($item['color'])->color)--}}
                 <?php
                 $product = \App\Product::find($item['id']);
@@ -27,7 +27,7 @@
             @if($agent->isMobile())
 
 
-                <div id="basket-{{ $key }}">
+                <div id="basket-{{ $product['id'] }}">
                     <div class="row mb-2 justify-content-center">
                         <div class="col-lg-1 col-6">
                             <img class="img-fluid" src="{{ asset('storage/'.json_decode($product->image)[0]) }}" alt="">
@@ -49,7 +49,7 @@
                                 @endforeach
                                 @elseif($item['kind'] == 1)
                                 @foreach($product->sizes as $size)
-                                    <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $size->size }} размер</span> : {{ (int)$content['content'] }} единиц</p>
+                                    <p class="font-size-14 font-weight-light mb-0"><span class="font-weight-normal">{{ $size->size }} размер</span> : {{ (int)$item['content'] }} единиц</p>
                                 @endforeach
                                 @endif
                             </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-4 d-flex pr-4 justify-content-end">
                             <div class="d-flex align-items-center mt-4">
-                                <div class="p-2 bg-danger rounded cart-delete" style="cursor: pointer;" data-id="{{ $key }}"><i class="far fa-trash-alt fa-lg text-white"></i></div>
+                                <div class="p-2 bg-danger rounded cart-delete" style="cursor: pointer;" data-id="{{ $product['id'] }}"><i class="far fa-trash-alt fa-lg text-white"></i></div>
                             </div>
                         </div>
                     </div>
