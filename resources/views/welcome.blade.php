@@ -198,7 +198,7 @@
     </div>
     <div class="container bg-white py-4 my-lg-5 my-0">
         <div class="row justify-content-center">
-            @foreach(\App\Type::all() as $type)
+            @foreach(\App\Type::all()->reverse() as $type)
                 @if(count($type->products))
                 <div class="col-lg-4 col-6 px-lg-5 px-3 pb-lg-0 pb-4 mb-4">
                     <a href="{{ route('catalog',['id'=>$type->id,'раздел'=>$type->title,'t'=>1]) }}" style="text-decoration: none;">
