@@ -195,7 +195,7 @@
                                 {{--</div>--}}
                                 {{--<div class="col-4"></div>--}}
                             {{--</div>--}}
-                            @foreach($product->sizes as $size)
+                            @foreach($product->sizes->sortBy('size') as $size)
                                 <div class="row mb-2">
                                     <div class="col-3">
                                         <div class="d-flex align-items-center justify-content-center p-1"
@@ -287,7 +287,7 @@
                         Размеры:
                     </p>
                     <p class="font-size-16 font-weight-light text-dark openSans">
-                        @foreach($product->sizes as $size)
+                        @foreach($product->sizes->sortBy('size') as $size)
                             {{ $size->size }}{{$loop->last ? '' : ','}}
                         @endforeach
                     </p>

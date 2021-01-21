@@ -36,7 +36,7 @@ $agent = new \Jenssegers\Agent\Agent();
                     Размеры:
                 </p>
                 <div class="d-flex">
-                    @foreach($product->sizes as $size)
+                    @foreach($product->sizes->sortBy('size') as $size)
                         <span class="font-size-12 text-dark font-weight-light mr-1">{{ $size->size }}{{$loop->last ? '' : ','}}</span>
                     @endforeach
                 </div>
